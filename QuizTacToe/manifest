@@ -27,3 +27,4 @@ splash_color=#000000
 splash_min_time=1
 
 mm_icon_focus_hd=pkg:/images/start.png
+splash_screen_hd=pkg:/images/RokuSplash.png

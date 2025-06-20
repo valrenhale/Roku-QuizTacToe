@@ -10,5 +10,6 @@ WEEK 1 - 6/16 to 6/20 of 2025
   DAY 5 - 6/20 FRIDAY
   Trying to make progress on win condition with left and right diagonals, horizontal, vertical
   When creating a function (sub), be sure to call it in the ON KEY EVENT function
+  Second and third horizontal row win conditions work except for first; last X put down is invisible and cursor still visible
 
 WEEK 2 - 6/23 to 6/27 of 2025

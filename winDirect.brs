@@ -42,6 +42,15 @@ for i = 0 to m.gridArray.count() - 1
     end if 
 end for
 
+sub horizontal()  
+    if m.x[0].visible = true and m.x[1].visible = true and m.x[2].visible = true then
+    else if m.x[3].visible = true and m.x[4].visible = true and m.x[5].visible = true then
+        m.cursor.visible = false
+    else if m.x[6].visible = true and m.x[7].visible = true and m.x[8].visible = true then
+        m.cursor.visible = false
+    end if
+end sub
+
 sub vertical()
     ' for same y coordinates 
 end sub

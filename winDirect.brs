@@ -54,3 +54,21 @@ end sub
 sub vertical()
     ' for same y coordinates 
 end sub
+
+sub diagonals()
+    if m.x[0].visible and m.x[4].visible and m.x[8].visible then
+        m.cursor.visible = false
+    else if m.x[2].visible and m.x[4].visible and m.x[6].visible then
+        m.cursor.visible = false
+    end if
+end sub
+
+sub horizontal()  
+    if m.x[0].visible and m.x[1].visible and m.x[2].visible then
+        m.cursor.visible = false
+    else if m.x[3].visible and m.x[4].visible and m.x[5].visible then
+        m.cursor.visible = false
+    else if m.x[6].visible and m.x[7].visible and m.x[8].visible then
+        m.cursor.visible = false
+    end if
+end sub

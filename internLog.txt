@@ -4,7 +4,7 @@ WEEK 1 - 6/16 to 6/20 of 2025
   DAY 2 - 6/17 TUESDAY
   Fixed wraparound and overlap bugs, fixed only X's bug, and new icon made for app
   DAY 3 - 6/18 WEDNESDAY
-  Tried to make progress on win condition with rows and columns
+  Tried to make progress on win condition with rows and columns, updated icon
   DAY 4 - 6/19 THURSDAY
   OFF for Juneteenth
   DAY 5 - 6/20 FRIDAY

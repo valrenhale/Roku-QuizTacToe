@@ -13,3 +13,6 @@ WEEK 1 - 6/16 to 6/20 of 2025
   Second and third horizontal row win conditions work except for first; last X put down is invisible and cursor still visible
 
 WEEK 2 - 6/23 to 6/27 of 2025
+  DAY 6 - 6/23 MONDAY
+  Successfully completed code for all winning directions and conditions (horizontal, vertical, diagonals)
+  However, this is hard coded! We may make our code more abstract later on + refine conditions

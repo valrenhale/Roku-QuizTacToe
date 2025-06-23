@@ -14,6 +14,5 @@ WEEK 1 - 6/16 to 6/20 of 2025
 
 WEEK 2 - 6/23 to 6/27 of 2025
   DAY 6 - 6/23 MONDAY
-  Successfully completed X code for all winning directions and conditions (horizontal, vertical, diagonals)
+  Successfully completed X and O code for all winning directions and conditions (horizontal, vertical, diagonals)
   However, this is hard coded! We may make our code more abstract later on + refine conditions
-  Working on coding for O

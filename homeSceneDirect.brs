@@ -118,9 +118,7 @@ sub displayXorY()
                 end if
             end if
         end for
-        horizontal()
-        vertical()
-        diagonal()
+        win()
     else
         for i = 0 to m.o.Count() - 1
             if m.x[i].visible = false and m.o[i].visible = false then
@@ -130,33 +128,41 @@ sub displayXorY()
                 end if
             end if
         end for
+        win()
     end if
 end sub
 
-sub horizontal()  
-    if m.x[0].visible and m.x[1].visible and m.x[2].visible then
+sub horizontal() 
+    ' check for horizontal win for x' 
+    if (m.x[0].visible and m.x[1].visible and m.x[2].visible) or (m.o[0].visible and m.o[1].visible and m.o[2].visible) then
         m.cursor.visible = false
-    else if m.x[3].visible and m.x[4].visible and m.x[5].visible then
+    else if (m.x[3].visible and m.x[4].visible and m.x[5].visible) or (m.o[3].visible and m.o[4].visible and m.o[5].visible) then
         m.cursor.visible = false
-    else if m.x[6].visible and m.x[7].visible and m.x[8].visible then
+    else if (m.x[6].visible and m.x[7].visible and m.x[8].visible) or (m.o[6].visible and m.o[7].visible and m.o[8].visible) then
         m.cursor.visible = false
     end if
 end sub
 
 sub vertical()
-    if m.x[0].visible and m.x[3].visible and m.x[6].visible then
+    if (m.x[0].visible and m.x[3].visible and m.x[6].visible) or (m.o[0].visible and m.o[3].visible and m.o[6].visible) then
         m.cursor.visible = false  
-    else if m.x[1].visible and m.x[4].visible and m.x[7].visible then
+    else if (m.x[1].visible and m.x[4].visible and m.x[7].visible) or (m.o[1].visible and m.o[4].visible and m.o[7].visible) then
         m.cursor.visible = false
-    else if m.x[2].visible and m.x[5].visible and m.x[8].visible then
+    else if (m.x[2].visible and m.x[5].visible and m.x[8].visible) or (m.o[2].visible and m.o[5].visible and m.o[8].visible) then
         m.cursor.visible = false
     end if
 end sub
 
 sub diagonal()
-    if m.x[0].visible and m.x[4].visible and m.x[8].visible then
+    if (m.x[0].visible and m.x[4].visible and m.x[8].visible) or (m.o[0].visible and m.o[4].visible and m.o[8].visible) then
         m.cursor.visible = false
-    else if m.x[2].visible and m.x[4].visible and m.x[6].visible then
+    else if m.x[2].visible and m.x[4].visible and m.x[6].visible or (m.o[2].visible and m.o[4].visible and m.o[6].visible)  then
         m.cursor.visible = false
     end if
+end sub
+
+sub win()
+    horizontal()
+    vertical()
+    diagonal()
 end sub

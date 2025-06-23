@@ -120,6 +120,7 @@ sub displayXorY()
         end for
         horizontal()
         vertical()
+        diagonal()
     else
         for i = 0 to m.o.Count() - 1
             if m.x[i].visible = false and m.o[i].visible = false then
@@ -148,6 +149,14 @@ sub vertical()
     else if m.x[1].visible and m.x[4].visible and m.x[7].visible then
         m.cursor.visible = false
     else if m.x[2].visible and m.x[5].visible and m.x[8].visible then
+        m.cursor.visible = false
+    end if
+end sub
+
+sub diagonal()
+    if m.x[0].visible and m.x[4].visible and m.x[8].visible then
+        m.cursor.visible = false
+    else if m.x[2].visible and m.x[4].visible and m.x[6].visible then
         m.cursor.visible = false
     end if
 end sub

@@ -44,14 +44,18 @@ sub init()
     m.cursor.setFocus(true)
     m.cursor.width = m.grid[0].width
     m.cursor.height = m.cursor.width
-    m.cursor.translation = m.grid[0].translation
+    m.cursor.translation = m.grid[0].translation 
     m.numRows = 3
     m.numCols = 3
     m.cursorRow = 0
     m.cursorCol = 0
 
     ' a count variable to track the number of moves
-    m.count = 0
+    m.count = 0    
+    
+    'win label setup
+    m.winLabel = m.top.findNode("winLabel")
+    m.winLabel.font.size = 50
 end sub
 
 ' remote interaction setup
@@ -75,6 +79,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             displayXorY()
         end if
     end if
+    
     return handled
 end function
 
@@ -106,58 +111,85 @@ end sub
 ' display x or y as appropriate
 sub displayXorY()
     if m.count MOD 2 = 0 then
-            for i = 0 to m.x.Count() - 1
-                if m.x[i].visible = false and m.o[i].visible = false then
-                    if m.x[i].translation[0] = m.cursor.translation[0] and m.x[i].translation[1] = m.cursor.translation[1] then
-                m.x[i].visible = true
-                m.count = m.count + 1
-                    end if
+        for i = 0 to m.x.Count() - 1
+            if m.x[i].visible = false and m.o[i].visible = false then
+                if m.x[i].translation[0] = m.cursor.translation[0] and m.x[i].translation[1] = m.cursor.translation[1] then
+                    m.x[i].visible = true
+                    m.count = m.count + 1
                 end if
-            end for
-        else
-            for i = 0 to m.o.Count() - 1
-                if m.x[i].visible = false and m.o[i].visible = false then
-                    if m.o[i].translation[0] = m.cursor.translation[0] and m.o[i].translation[1] = m.cursor.translation[1] then
-                m.o[i].visible = true
-                m.count = m.count + 1
-                    end if
+            end if
+        end for
+        win()
+    else
+        for i = 0 to m.o.Count() - 1
+            if m.x[i].visible = false and m.o[i].visible = false then
+                if m.o[i].translation[0] = m.cursor.translation[0] and m.o[i].translation[1] = m.cursor.translation[1] then
+                    m.o[i].visible = true
+                    m.count = m.count + 1
                 end if
-            end for
+            end if
+        end for
+        win()
     end if
 end sub
 
-' win condition for game to end
-sub win()
-    m.winLabel= m.top.findNode("winLabel")
-    numColX = 0
-    numColO = 0
-    numRowX = 0
-    numRowO = 0
-    for row = 0 to m.gridArray.Count() - 1
-        for col = 0 to m.gridArray[row].Count() - 1
-            if m.x[col].visible = true then
-                ' col = col + 1 'increment col'
-                numColX = numColX + 1
-            end if
-            if m.o[col].visible = true then
-                ' col = col + 1
-                numColO = numColO + 1
-            end if
-        end for
+sub helperX(pos1, pos2, pos3)
+    if m.x[pos1].visible and m.x[pos2].visible and m.x[pos3].visible then
+        m.winLabel.text = "X Wins!"
+    end if 
+end sub 
+
+sub helperO(pos1, pos2, pos3)
+    if m.o[pos1].visible and m.o[pos2].visible and m.o[pos3].visible then
+        m.winLabel.text = "O Wins!"
+    end if 
+end sub 
+
+' Simplified vertical win check
+sub vertical()
+    for i = 0 to 2
+        if m.x[i].visible and m.x[i+3].visible and m.x[i+6].visible then
+            m.cursor.visible = false
+            helperX(i, i+3, i+6)
+            
+        else if m.o[i].visible and m.o[i+3].visible and m.o[i+6].visible then
+            m.cursor.visible = false
+            helperO(i, i+3, i+6)
+        end if
     end for
-    for col = 0 to m.gridArray[0].Count() - 1
-        for row = 0 to m.gridArray.Count() - 1
-            if m.x[row].visible = true then
-                ' row = row + 1 'increment row'
-                numRowX = numRowX + 1
-            end if
-            if m.o[row].visible = true then
-                ' row = row + 1
-                numRowO = numRowO + 1
-            end if
-        end for
+end sub
+'Simplified horizontal win check'
+sub horizontal()
+    for i = 0 to 6 step 3 
+        if m.x[i].visible and m.x[i+1].visible and m.x[i+2].visible then
+            m.cursor.visible = false
+            helperX(i, i+1, i+2)
+            
+        else if m.o[i].visible and m.o[i+1].visible and m.o[i+2].visible then
+            m.cursor.visible = false
+            helperO(i, i+1, i+2)
+        end if
     end for
-    if numRowX = 3 or numColX = 3 or numRowO = 3 or numColO = 3 then
-        m.winLabel.visible = true
+end sub
+
+sub diagonal()
+    if (m.x[0].visible and m.x[4].visible and m.x[8].visible) then
+        m.cursor.visible = false
+        helperX(0, 4, 8)
+    else if (m.o[0].visible and m.o[4].visible and m.o[8].visible) then
+        m.cursor.visible = false
+        helperO(0, 4, 8)
+    else if m.x[2].visible and m.x[4].visible and m.x[6].visible then 
+        m.cursor.visible = false
+        helperX(2, 4, 6)
+    else if (m.o[2].visible and m.o[4].visible and m.o[6].visible) then
+        m.cursor.visible = false
+        helperO(2, 4, 6)
     end if
 end sub
+
+sub win()
+    horizontal()
+    vertical()
+    diagonal()
+end sub 

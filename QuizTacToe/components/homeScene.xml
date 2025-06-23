@@ -19,11 +19,16 @@
       id="cursor"
       uri="pkg:/images/cursor.png"
     />
+    <Rectangle
+      id="strike012"/>
+      
     <Label
-      id="winLabel"
-      text="Something/someone/ze/her/she/he won"
-      translation="[640, 320]"
-      font="Comic Sans"
+      id = "winLabel"
+      text = ""
+      translation = "[560, 25]"
+      visible = "true"
+      color = "#FFFFFF"
+      font = "font:LargeBoldSystemFont"
     />
   </children>
 </component>

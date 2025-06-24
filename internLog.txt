@@ -1,23 +1,31 @@
-WEEK 1 - 6/16 to 6/20 of 2025
+*WEEK 1 - 6/16 to 6/20 of 2025*
+
   DAY 1 - 6/16 MONDAY
   Orientation, onboarding with Ivan Ramirez
+
   DAY 2 - 6/17 TUESDAY
   Fixed wraparound and overlap bugs, fixed only X's bug, and new icon made for app
+
   DAY 3 - 6/18 WEDNESDAY
   Tried to make progress on win condition with rows and columns, updated icon
+
   DAY 4 - 6/19 THURSDAY
   OFF for Juneteenth
+
   DAY 5 - 6/20 FRIDAY
   Tried to make progress on win condition with left and right diagonals, horizontal, vertical
   When creating a function (sub), be sure to call it in the ON KEY EVENT function
   Second and third horizontal row win conditions work except for first; last X put down is invisible and cursor still visible
 
-WEEK 2 - 6/23 to 6/27 of 2025
+
+*WEEK 2 - 6/23 to 6/27 of 2025*
+
   DAY 6 - 6/23 MONDAY
   Successfully completed X and O code for all winning directions and conditions (horizontal, vertical, diagonals)
   However, this is hard coded! We may make our code more abstract later on + refine conditions
   Made vertical and horizontal simplified (created helper method), but diagonal hard coded
   OFFICIALLY FINISHED WIN CONDITIONS AND OUTPUTS!!! 
+
   DAY 7 - 6/24 TUESDAY (SUBHA DAY!)
   Bao, Tony, Sam working on jeopardy; Katherine, Subha, Sofia working on transition to other screens!
   *NOTE: NEVER DUPLICATE A WORKSPACE ON VSC AND EXPECT IT TO NOT MAKE THE SAME CHANGES TO OG WORKSPACE

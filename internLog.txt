@@ -18,3 +18,6 @@ WEEK 2 - 6/23 to 6/27 of 2025
   However, this is hard coded! We may make our code more abstract later on + refine conditions
   Made vertical and horizontal simplified (created helper method), but diagonal hard coded
   OFFICIALLY FINISHED WIN CONDITIONS AND OUTPUTS!!! 
+  DAY 7 - 6/24 TUESDAY (SUBHA DAY!)
+  Working on jeopardy and other screens!
+  *NOTE: NEVER DUPLICATE A WORKSPACE ON VSC AND EXPECT IT TO NOT MAKE THE SAME CHANGES TO OG WORKSPACE

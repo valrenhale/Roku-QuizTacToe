@@ -1,0 +1,27 @@
+<?version:"1.0" encoding: "utf-8" ?>
+<interface> 
+<component name="Trivia_logic" extends="tasks">
+    <field id="status" type="string"/>
+    <field id="question" type="string"/>
+    <field id="options" type="assocarray"/>
+    <field id="correctAnswer" type= "string"/>
+
+</interface> 
+<script type="text/brightscript" uri="pkg:/components/Trivia_logic.brs" />
+</component> 
+
+<component name="QuestionPopup" extends="Group">
+    <interface>
+        <field id="questionText" type="string"/>
+        <field id="options" type="assocarray"/>
+    </interface>
+    <children>
+        <Rectangle width="600" height="400" color="0xFFFFFFFF" translation="[360, 200]">
+            <Label id="questionLabel" text="$questionText" translation="[20, 20]" width="560" height="60" font="Medium"/>
+            <Group id="optionsGroup" translation="[20, 100]">
+                <!-- Option buttons will be added dynamically in brightscript -->
+            </Group>
+        </Rectangle>
+    </children>
+</component>
+</interface>

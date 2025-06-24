@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="startScene" extends="Scene">
+<script type="text/brightscript" uri="pkg:/components/screens/Start.brs"/>
+<interface>
+    <field id="startGame" type="boolean" />
+</interface>
+    <children>
+        <Poster
+            id="startScreenImage"
+            uri="pkg:/images/startScreen.png"
+        />
+    </children>
+</component>

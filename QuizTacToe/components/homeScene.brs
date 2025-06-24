@@ -1,195 +1,75 @@
-sub init()
-    ' width and height of the screen
-    deviceInfo = createObject("roDeviceInfo")
-    m.scrWidth = deviceInfo.getDisplaySize().w
-    m.scrHeight = deviceInfo.getDisplaySize().h
+function init()
+    ? "[homeScene] init"
 
-    ' background setup
-    m.background = m.top.findNode("background")
-    m.background.width = m.scrWidth
-    m.background.height= m.scrHeight
+    m.homeScreen = m.top.findNode("Start")
+    m.homeScreen.setFocus(true)
 
-    ' grid setup
-    m.grid = []
-    m.gridContainer = m.top.findNode("gridContainer")
-    gridSize = 0.25
-    numCol = 3
-    gridImg = "pkg:/images/grid.png"
-    createGrid(m.grid, m.gridContainer, gridSize, numCol, gridImg)
+    m.game = m.top.findNode("gameScene")
+    m.game.visible = false
 
-    ' x setup
-    m.x = []
-    m.xContainer = m.top.findNode("xContainer")
-    xSize = 0.25
-    xImg = "pkg:/images/x.png"
-    createGrid(m.x, m.xContainer, xSize, numCol, xImg)
-    ' make x invisible
-    for i = 0 to m.x.Count() - 1
-        m.x[i].visible = false
-    end for
+    m.jeopardy = m.top.findNode("Trivia_logic")
+    m.jeopardy.visible = false
 
-    ' o setup
-    m.o = []
-    m.oContainer = m.top.findNode("oContainer")
-    oSize = 0.25
-    oImg = "pkg:/images/o.png"
-    createGrid(m.o, m.oContainer, oSize, numCol, oImg)
-    ' make o invisible
-    for i = 0 to m.o.Count() - 1
-        m.o[i].visible = false
-    end for
+    m.homeScreen.observeField("category_selected", "onCategorySelected")
 
-    ' cursor setup
-    m.cursor = m.top.findNode("cursor")
-    m.cursor.setFocus(true)
-    m.cursor.width = m.grid[0].width
-    m.cursor.height = m.cursor.width
-    m.cursor.translation = m.grid[0].translation 
-    m.numRows = 3
-    m.numCols = 3
-    m.cursorRow = 0
-    m.cursorCol = 0
-
-    ' a count variable to track the number of moves
-    m.count = 0    
-    
-    'win label setup
-    m.winLabel = m.top.findNode("winLabel")
-    m.winLabel.font.size = 50
-end sub
-
-' remote interaction setup
-function onKeyEvent(key as String, press as Boolean) as Boolean
-    handled = false
-    hoi = m.grid[0].width
-    if press then
-        if key = "up" and m.cursorRow > 0
-            m.cursorRow = m.cursorRow - 1
-            m.cursor.translation = [m.cursor.translation[0], m.cursor.translation[1] - hoi]
-        else if key = "down" and m.cursorRow < m.numRows - 1
-            m.cursorRow = m.cursorRow + 1
-            m.cursor.translation = [m.cursor.translation[0], m.cursor.translation[1] + hoi]
-        else if key = "right" and m.cursorCol < m.numCols - 1
-            m.cursorCol = m.cursorCol + 1
-            m.cursor.translation = [m.cursor.translation[0] + hoi, m.cursor.translation[1]]
-        else if key = "left" and m.cursorCol> 0
-            m.cursorCol = m.cursorCol - 1
-            m.cursor.translation = [m.cursor.translation[0] - hoi, m.cursor.translation[1]]
-        else if key = "OK"
-            displayXorY()
-        end if
-    end if
-    
-    return handled
+    m.buttonIndex = -1
 end function
 
-' create a grid of posters
-sub createGrid(gridArray as Object, container as Object, gridSize as Float, numCol as Integer, imgUri as String)
-    ' create the posters
-    for i = 0 to (numCol * numCol) - 1
-        gridArray.Push(CreateObject("roSGNode", "Poster"))
-        gridArray[i].uri = imgUri
-        gridArray[i].height = gridSize * m.scrHeight
-        gridArray[i].width = gridArray[i].height
-        container.appendChild(gridArray[i])
-    end for
-    ' calculate the initial coordinates
-    xCoor = m.scrWidth/2 - 1.5 * gridArray[0].width
-    yCoor = m.scrHeight/2 - 1.5 * gridArray[0].height
-    ' place the posters
-    for i = 0 to gridArray.Count() - 1
-        gridArray[i].translation = [xCoor, yCoor]
-        if (i + 1) MOD numCol = 0 then
-            xCoor = m.scrWidth/2 - 1.5 * gridArray[0].width
-            yCoor = yCoor + gridArray[0].height
-        else
-            xCoor = xCoor + gridArray[0].width
-        end if
-    end for
-end sub
+sub onCategorySelected(obj)
+    ? "onCategorySelected field: "; obj.getField()
+    ? "onCategorySelected data: "; obj.getData()
 
-' display x or y as appropriate
-sub displayXorY()
-    if m.count MOD 2 = 0 then
-        for i = 0 to m.x.Count() - 1
-            if m.x[i].visible = false and m.o[i].visible = false then
-                if m.x[i].translation[0] = m.cursor.translation[0] and m.x[i].translation[1] = m.cursor.translation[1] then
-                    m.x[i].visible = true
-                    m.count = m.count + 1
-                end if
-            end if
-        end for
-        win()
-    else
-        for i = 0 to m.o.Count() - 1
-            if m.x[i].visible = false and m.o[i].visible = false then
-                if m.o[i].translation[0] = m.cursor.translation[0] and m.o[i].translation[1] = m.cursor.translation[1] then
-                    m.o[i].visible = true
-                    m.count = m.count + 1
-                end if
-            end if
-        end for
-        win()
+    m.buttonIndex = obj.getData()
+
+    if m.buttonIndex = 1 then
+        m.homeScreen.visible = false
+        m.game.visible = true
+
+        m.homeScreen.setFocus(false)
+        m.game.setFocus(true)
+    end if
+
+    if m.buttonIndex = 0 then
+        m.homeScreen.visible = false
+        m.game.visible = false
+        m.jeopardy.visible = true
+
+        m.homeScreen.setFocus(false)
+        m.game.setFocus(false)
+        m.jeopardy.setFocus(true)
+
     end if
 end sub
+function OnKeyEvent(key as String, press as Boolean) as Boolean
 
-sub helperX(pos1, pos2, pos3)
-    if m.x[pos1].visible and m.x[pos2].visible and m.x[pos3].visible then
-        m.winLabel.text = "X Wins!"
-    end if 
-end sub 
+    result = false
+    if press then
+        if key = "back" then
+            if m.jeopardy.visible then
+                m.jeopardy.visible = false
+                m.game.visible = false
+                m.homeScreen.visible = true
 
-sub helperO(pos1, pos2, pos3)
-    if m.o[pos1].visible and m.o[pos2].visible and m.o[pos3].visible then
-        m.winLabel.text = "O Wins!"
-    end if 
-end sub 
+                m.jeopardy.setFocus(false)
+                m.game.setFocus(false)
+                m.homeScreen.setFocus(true)
+                m.homeScreen.callFunc("buttonFocus")
 
-' Simplified vertical win check
-sub vertical()
-    for i = 0 to 2
-        if m.x[i].visible and m.x[i+3].visible and m.x[i+6].visible then
-            m.cursor.visible = false
-            helperX(i, i+3, i+6)
-            
-        else if m.o[i].visible and m.o[i+3].visible and m.o[i+6].visible then
-            m.cursor.visible = false
-            helperO(i, i+3, i+6)
+                result = true
+
+            else if m.game.visible then
+                m.game.visible = false
+                m.jeopardy.visible = false
+                m.homeScreen.visible = true
+
+                m.jeopardy.setFocus(false)
+                m.game.setFocus(false)
+                m.homeScreen.setFocus(true)
+                m.homeScreen.callFunc("buttonFocus")
+
+                result = true
+            end if
         end if
-    end for
-end sub
-'Simplified horizontal win check'
-sub horizontal()
-    for i = 0 to 6 step 3 
-        if m.x[i].visible and m.x[i+1].visible and m.x[i+2].visible then
-            m.cursor.visible = false
-            helperX(i, i+1, i+2)
-            
-        else if m.o[i].visible and m.o[i+1].visible and m.o[i+2].visible then
-            m.cursor.visible = false
-            helperO(i, i+1, i+2)
-        end if
-    end for
-end sub
-
-sub diagonal()
-    if (m.x[0].visible and m.x[4].visible and m.x[8].visible) then
-        m.cursor.visible = false
-        helperX(0, 4, 8)
-    else if (m.o[0].visible and m.o[4].visible and m.o[8].visible) then
-        m.cursor.visible = false
-        helperO(0, 4, 8)
-    else if m.x[2].visible and m.x[4].visible and m.x[6].visible then 
-        m.cursor.visible = false
-        helperX(2, 4, 6)
-    else if (m.o[2].visible and m.o[4].visible and m.o[6].visible) then
-        m.cursor.visible = false
-        helperO(2, 4, 6)
     end if
-end sub
-
-sub win()
-    horizontal()
-    vertical()
-    diagonal()
-end sub 
+    return result
+end function

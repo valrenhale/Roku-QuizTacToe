@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="homeScene" extends="Scene">
-<script type="text/brightscript" uri="pkg:/components/homeScene.brs"/>
-	<children>
-    <Poster
-      id="background"
-      uri="pkg:/images/bg.png"
-    />
-    <Group
-      id="gridContainer"
-    />
-    <Group
-      id="xContainer"
-    />
-    <Group
-      id="oContainer"
-    />
-    <Poster
-      id="cursor"
-      uri="pkg:/images/cursor.png"
-    />
-    <Rectangle
-      id="strike012"/>
-      
-    <Label
-      id = "winLabel"
-      text = ""
-      translation = "[560, 25]"
-      visible = "true"
-      color = "#FFFFFF"
-      font = "font:LargeBoldSystemFont"
-    />
-  </children>
+<component name="homeScene" extends="Scene" initialFocus = "Start">
+  <script type="text/brightscript" uri="pkg:/components/homeScene.brs" />
+  <script type="text/brightscript" uri="pkg:/components/screens/Start.brs" />
+  <children>
+     <homeScreen
+      id="homeScreen"
+      visible="true"
+      translation="[0,0]"
+       />
+    <game
+      id="game"
+      visible="false"
+      translation="[0,0]" />
+    <jeopardy
+      id="jeopardy"
+      visible="false"
+      translation="[0,0]"
+       />
+  </children> 
 </component>

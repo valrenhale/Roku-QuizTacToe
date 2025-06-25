@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="homeScene" extends="Scene">
+ <script type="text/brightscript" uri="pkg:/components/homeScene.brs"/>
+	<children>
+    
+    <Poster
+      id="clickScreen"
+      uri="pkg:/images/rokuStartClick.png"
+      visible = "false"
+    />
+
+    <Button
+    id="hiddenStartButton"
+    width="0.5"
+    height="0.5"
+    translation="[0, 0]"
+    focusable="true"
+    visible="false" 
+    />
+
+
+
+    <Poster
+      id="startScreen"
+      uri="pkg:/images/startScreen.png"
+    />
+
+    <Poster
+      id="background"
+      uri="pkg:/images/bg.png"
+      visible = "false"
+    />
+
+    <Group
+      id="gridContainer"
+    />
+
+    <Group
+      id="xContainer"
+    />
+
+    <Group
+      id="oContainer"
+    />
+
+    <Poster
+      id="cursor"
+      uri="pkg:/images/cursor.png"
+    />
+    
+    <Label
+      id = "winLabel"
+      text = ""
+      translation = "[560, 25]"
+      visible = "true"
+      color = "#FFFFFF"
+      font = "font:LargeBoldSystemFont"
+    />
+
+    <Timer
+    id="clickScreenTimer"
+    duration="0.1"
+    repeat="false"
+    />
+  </children>
+</component>

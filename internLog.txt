@@ -29,3 +29,8 @@
   DAY 7 - 6/24 TUESDAY (SUBHA DAY!)
   Bao, Tony, Sam working on jeopardy; Katherine, Subha, Sofia working on transition to other screens!
   *NOTE: NEVER DUPLICATE A WORKSPACE ON VSC AND EXPECT IT TO NOT MAKE THE SAME CHANGES TO OG WORKSPACE
+
+  DAY 8 - 6/25 WEDNESDAY
+  Kathy, Subha, Sofia working on testing and debugging screen code for start (chose to keep one file for every screen)
+  Tony, Bao, Sam working on API functionality and JSON files
+  TESTING DAY

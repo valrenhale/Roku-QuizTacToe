@@ -34,3 +34,5 @@
   Kathy, Subha, Sofia working on testing and debugging screen code for start (chose to keep one file for every screen)
   Tony, Bao, Sam working on API functionality and JSON files
   TESTING DAY
+  FINISHED TIC TAC TOE GAME
+  *side note: capybara images/audio playing when jeopardy runs

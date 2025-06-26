@@ -256,6 +256,9 @@ sub win()
     horizontal()
     vertical()
     diagonal()
+    if m.winLabel.text <> "" then
+        m.cursor.setFocus(false)
+    end if
 end sub 
 
 ' Function to make all game elements visible

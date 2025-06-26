@@ -35,4 +35,7 @@
   Tony, Bao, Sam working on API functionality and JSON files
   TESTING DAY
   FINISHED TIC TAC TOE GAME
-  *side note: capybara images/audio playing when jeopardy runs
+  *side note: add capybara images/audio playing when jeopardy runs
+
+  DAY 9 - 6/26 THURSDAY (TIMESHEET #1 DAY)
+  All hands on deck; working on hard coding JSON files/questions into app as new screens are opened 

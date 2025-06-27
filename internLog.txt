@@ -39,3 +39,6 @@
 
   DAY 9 - 6/26 THURSDAY (TIMESHEET #1 DAY)
   All hands on deck; working on hard coding JSON files/questions into app as new screens are opened 
+
+  DAY 10 - 6/27 FRIDAY (TONY FIXED CODE OVERNIGHT WITH KATHERINE)
+  Working on refining code; change algorithm so random questions are different each time

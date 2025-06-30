@@ -9,9 +9,11 @@ sub init()
     ? "[oWin_scene] init"
 
     ' confetti animation setup
+
     m.confetti1 = m.top.findNode("confetti1")
     m.confetti2 = m.top.findNode("confetti2")
     m.confettiAnimation = m.top.findNode("confettiAnimation")
+
     m.confettiAnimation.observeField("state", "onConfettiAnimationComplete")
 
     ' setup hidden start button
@@ -447,8 +449,8 @@ end sub
 sub showGameElements()
     m.background.visible = true
     m.gridContainer.visible = true  ' Show the grid
-    m.xContainer.visible = true     ' Show the X container
-    m.oContainer.visible = true     ' Show the O container
+    m.xContainer.visible = true   
+    m.oContainer.visible = true     
     for i = 0 to m.grid.Count() - 1
         m.grid[i].visible = true
     end for
@@ -524,14 +526,17 @@ sub TorF()
     end if
     m.ButtonResponse.visible = true
     m.ButtonResponse.setFocus(true)
-    m.ButtonResponse.buttons = ["true", "false"]
+    m.ButtonResponse.buttons = ["True", "False"]
+
+    if m.Buttonresponse.buttons = ["True", "False"] then
+    m.ButtonResponse.translation = [470, 500]
+    end if
 
      'global
     m.RandomNum = randomNum
     m.QuestionBank = questionBank
     m.AnswerBank = answerBank    
 end sub
-
 
 sub triviaQuestion()
     m.questionActive = true

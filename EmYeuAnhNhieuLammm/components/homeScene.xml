@@ -10,20 +10,21 @@
     />
     
     <!-- Simple falling animation with different speeds -->
-    <Animation id="confettiAnimation" duration="4.0" repeat="false" easeFunction="linear">
+    <Animation id="confettiAnimation" duration="10.0" repeat="false" easeFunction="linear">
     <!-- First confetti falls slower -->
       <Vector2DFieldInterpolator 
-      key="[0.0, 1.0]" 
-      keyValue="[[0, -100], [0, 900]]" 
-      fieldToInterp="confetti1.translation"
+        key="[0.0, 1.0]" 
+        keyValue="[[0, -300], [0, 900]]" 
+        fieldToInterp="confetti1.translation"
       />
 
   <!-- Second confetti falls faster and starts slightly later -->
       <Vector2DFieldInterpolator 
-      key="[0.1, 1.0]" 
-      keyValue="[[0, -120], [0, 920]]" 
-      fieldToInterp="confetti2.translation"
+        key="[0.2, 1.0]" 
+        keyValue="[[0, -320], [0, 920]]" 
+        fieldToInterp="confetti2.translation"
       />
+
     </Animation>
 
 
@@ -128,6 +129,7 @@
     <Poster id="confetti1"
       uri="pkg:/images/confetti.png"
       visible="false"
+  
     />
     
     <Poster id="confetti2"

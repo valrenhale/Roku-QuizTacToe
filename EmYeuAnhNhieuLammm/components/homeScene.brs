@@ -673,7 +673,6 @@ sub showWinWithConfetti()
     m.confetti2.visible = true
     m.confettiAnimation.control = "start"
     
-    
     ' set focus to scene for back button handling
     m.top.setFocus(true)
 end sub

@@ -497,21 +497,21 @@ sub TorF()
     questionBank.AddTail("The official language of the US has always been English")
 
     answerBank = CreateObject("roList")
-    answerBank.AddTail("false")
-    answerBank.AddTail("false")
-    answerBank.AddTail("true")
-    answerBank.AddTail("true")
-    answerBank.AddTail("true")
-    answerBank.AddTail("true")
-    answerBank.AddTail("false")
-    answerBank.AddTail("false")
-    answerBank.AddTail("false")
-    answerBank.AddTail("false")
-    answerBank.AddTail("true")
-    answerBank.AddTail("true")
-    answerBank.AddTail("true")
-    answerBank.AddTail("false")
-    answerBank.AddTail("false")
+    answerBank.AddTail("False")
+    answerBank.AddTail("False")
+    answerBank.AddTail("True")
+    answerBank.AddTail("True")
+    answerBank.AddTail("True")
+    answerBank.AddTail("True")
+    answerBank.AddTail("False")
+    answerBank.AddTail("False")
+    answerBank.AddTail("False")
+    answerBank.AddTail("False")
+    answerBank.AddTail("True")
+    answerBank.AddTail("True")
+    answerBank.AddTail("True")
+    answerBank.AddTail("False")
+    answerBank.AddTail("False")
 
     m.audio.control = "stop"
     m.questionaudio.control = "play"
@@ -528,10 +528,6 @@ sub TorF()
     m.ButtonResponse.setFocus(true)
     m.ButtonResponse.buttons = ["True", "False"]
 
-    if m.Buttonresponse.buttons = ["True", "False"] then
-    m.ButtonResponse.translation = [470, 500]
-    end if
-
      'global
     m.RandomNum = randomNum
     m.QuestionBank = questionBank
@@ -542,7 +538,7 @@ sub triviaQuestion()
     m.questionActive = true
     m.cursor.setFocus(false)
     questionBank = createObject("roList")
-    questionBank.AddTail("Where was Micheal B Jordan born")
+    questionBank.AddTail("Where was Michael B Jordan born")
     questionBank.AddTail("What is the capital of Canada?")
     questionBank.AddTail("Where is Microsoft headquartered?")
     questionBank.AddTail("What is the largest pizza chain in the world?")
@@ -582,7 +578,7 @@ sub triviaQuestion()
         ["Domino's", "Pizza Hut", "Costco", "Little Caesars"],
         ["Au", "Go", "Gd", "Ag"],
         ["England", "Netherlands", "France", "Germany"],
-        ["St Kitts", "Jamaica", "Barbados", "Mount Kilimanjaro"],
+        ["St Kitts", "Jamaica", "Barbados", "Trinidad and Tobago"],
         ["Dutch", "German", "French", "Polish"],
         ["56", "29", "25", "22"],
         ["100", "75", "50", "40"],

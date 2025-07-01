@@ -126,6 +126,20 @@ sub init()
     m.questionLabel.wrap = true
     m.questionLabel.maxLines = 3
 
+    ' font setup
+    m.moodcake = CreateObject("roSGNode", "Font")
+    m.moodcake.uri = "pkg:/fonts/Moodcake.ttf"
+    m.moodcake.size = 50
+    m.winLabel.font = m.moodcake
+    m.turnLabel.font = m.moodcake
+
+    m.moodcake1 = CreateObject("roSGNode", "Font")
+    m.moodcake1.uri = "pkg:/fonts/Moodcake.ttf"
+    m.moodcake1.size = 70
+    m.questionLabel.font = m.moodcake1
+    m.questionLabel.width = m.scrWidth  
+    m.questionLabel.horizAlign = "center"
+
     ' button response setup'
     m.ButtonResponse = m.top.FindNode("response")
     m.ButtonResponse.size = 60
@@ -515,6 +529,7 @@ sub TorF()
 
     m.audio.control = "stop"
     m.questionaudio.control = "play"
+    m.questionaudio.loop = true
 
     randomNum = RND(questionBank.Count()) - 1
     m.currentCorrectAnswer = answerBank[randomNum] 'correct answer'
@@ -654,7 +669,6 @@ sub showWinWithConfetti()
     m.background.visible = false
     m.xContainer.visible = false
     m.oContainer.visible = false
-    
     m.turnLabel.visible = false
     
     ' show the appropriate win screen background
@@ -679,3 +693,4 @@ sub onConfettiAnimationComplete()
         ' Player can press back to return to menu
     end if
 end sub
+

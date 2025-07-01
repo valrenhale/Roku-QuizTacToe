@@ -72,7 +72,6 @@
       translation = "[0, 25]"
       visible = "true"
       color = "#FFFFFF"
-      font = "font:LargeBoldSystemFont"
     />
     
     <Label
@@ -80,7 +79,6 @@
       text = " "
       visible = "true"
       color = "#FFFFFF"
-      font = "font:LargeBoldSystemFont"
     />
     
     <Poster
@@ -99,7 +97,6 @@
       visible="true"
       text=""
       translation="[0,15]"
-      font="font:MediumBoldSystemFont"
     />
 
     <ButtonGroup 

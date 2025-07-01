@@ -24,6 +24,12 @@ sub init()
     m.clickScreenTimer = m.top.findNode("clickScreenTimer")
     m.clickScreenTimer.observeField("fire", "onClickScreenTimerFire")
 
+    ' setup win screen timer
+    m.winScreenTimer = m.top.findNode("winScreenTimer")
+    m.winScreenTimer.observeField("fire", "onWinScreenTimerFire")
+
+    ' m.top.observeField("buttonResponse", "selectRandomQ")
+
     ' width and height of the screen
     deviceInfo = createObject("roDeviceInfo")
     m.scrWidth = deviceInfo.getDisplaySize().w
@@ -273,7 +279,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
         backtoMenu()
         handled = true
 
-        else if m.cursor.visible = true
+        else if m.cursor.visible = true and m.questionActive = false
             if key = "up" and m.cursorRow > 0
                 m.cursorRow = m.cursorRow - 1
                 m.cursor.translation = [m.cursor.translation[0], m.cursor.translation[1] - hoi]
@@ -546,14 +552,14 @@ sub TorF()
      'global
     m.RandomNum = randomNum
     m.QuestionBank = questionBank
-    m.AnswerBank = answerBank    
+    m.AnswerBank = answerBank  
 end sub
 
 sub triviaQuestion()
     m.questionActive = true
     m.cursor.setFocus(false)
     questionBank = createObject("roList")
-    questionBank.AddTail("Where was Michael B Jordan born")
+    questionBank.AddTail("Where was Michael B Jordan born?")
     questionBank.AddTail("What is the capital of Canada?")
     questionBank.AddTail("Where is Microsoft headquartered?")
     questionBank.AddTail("What is the largest pizza chain in the world?")
@@ -619,6 +625,10 @@ sub triviaQuestion()
     m.ButtonResponse.buttons = choicesBank[randomNum]
 end sub
 
+sub RandomQues()
+
+end sub
+
 sub TriviaCorrect()
     selectedIndex = m.ButtonResponse.buttonSelected
     selectedContent = m.ButtonResponse.buttons[selectedIndex]
@@ -646,22 +656,15 @@ sub TriviaCorrect()
     end if
 end sub 
 
-sub selectRandomQ()
-    tempList = createObject("roList")
-    for item = 0 to m.QuestionBank.count() - 1
-        if m.QuestionBank[item] = true ' if question appears on the screen
-            tempList.AddTail(item)
-              if m.QuestionBank[m.RandomNum] = m.tempList[item]
-                ? "randomNum is equal to temp"
-                m.QuestionBank.delete(m.RandomNum)
-                m.AnswerBank.delete(m.RandomNum)
-              end if
-        end if
-    end for
+sub showWinWithConfetti()
+    'start winScreen timer
+    m.winScreenTimer.control = "start"
+
+    ' set focus to scene for back button handling
+    m.top.setFocus(true)
 end sub
 
-sub showWinWithConfetti()
-
+sub onWinScreenTimerFire()
     ' hide game elements
     m.cursor.visible = false
     m.cursor.setFocus(false)
@@ -682,9 +685,6 @@ sub showWinWithConfetti()
     m.confetti1.visible = true
     m.confetti2.visible = true
     m.confettiAnimation.control = "start"
-    
-    ' set focus to scene for back button handling
-    m.top.setFocus(true)
 end sub
 
 sub onConfettiAnimationComplete()
@@ -693,4 +693,3 @@ sub onConfettiAnimationComplete()
         ' Player can press back to return to menu
     end if
 end sub
-

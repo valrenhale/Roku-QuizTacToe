@@ -8,6 +8,12 @@
       duration="0.2"
       repeat="false"
     />
+
+    <Timer
+      id="winScreenTimer"
+      duration="0.5"
+      repeat="false"
+    />
     
     <!-- Simple falling animation with different speeds -->
     <Animation id="confettiAnimation" duration="10.0" repeat="false" easeFunction="linear">
@@ -26,7 +32,6 @@
       />
 
     </Animation>
-
 
     <Poster
       id="clickScreen"

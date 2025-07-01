@@ -42,3 +42,12 @@
 
   DAY 10 - 6/27 FRIDAY (TONY FIXED CODE OVERNIGHT WITH KATHERINE)
   Working on refining code; change algorithm so random questions are different each time
+
+*WEEK 3 - 6/30 to 7/4 of 2025*
+
+  DAY 11 - 6/30 MONDAY
+  Finished game: Subha added animations for winning screens; Tony and Kathy fixed turns label; Sofia made buttons aesthetic!
+  Bug: Questions randomized come up again twice or thrice (need to fix!)
+
+  DAY 12 - 7/1 TUESDAY
+  Work on fonts and randomizing questions correctly

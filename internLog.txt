@@ -50,4 +50,4 @@
   Bug: Questions randomized come up again twice or thrice (need to fix!)
 
   DAY 12 - 7/1 TUESDAY
-  Work on fonts and randomizing questions correctly
+  Incorporated title/header fonts (Moodcake) and randomizing questions correctly

@@ -679,19 +679,19 @@ sub TriviaCorrect()
     end if
 end sub 
 
-sub selectRandomQ()
-    tempList = createObject("roList")
-    for item = 0 to m.QuestionBank.count() - 1
-        if m.QuestionBank[item] = true ' if question appears on the screen
-            tempList.AddTail(item)
-              if m.QuestionBank[m.RandomNum] = m.tempList[item]
-                ? "randomNum is equal to temp"
-                m.QuestionBank.delete(m.RandomNum)
-                m.AnswerBank.delete(m.RandomNum)
-              end if
-        end if
-    end for
-end sub
+' sub selectRandomQ()
+  '   tempList = createObject("roList")
+  '   for item = 0 to m.QuestionBank.count() - 1
+   '     if m.QuestionBank[item] = true ' if question appears on the screen
+  '          tempList.AddTail(item)
+  '            if m.QuestionBank[m.RandomNum] = m.tempList[item]
+  '              ? "randomNum is equal to temp"
+  '              m.QuestionBank.delete(m.RandomNum)
+   '             m.AnswerBank.delete(m.RandomNum)
+  '            end if
+  ' '     end if
+   ' end for
+'end sub
 
 sub showWinWithConfetti()
 
@@ -731,3 +731,5 @@ end sub
 sub categoryLabel()
         
 end sub
+
+

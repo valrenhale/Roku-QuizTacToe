@@ -85,17 +85,19 @@
 
     <poster
       id = "leftAnimal"
-      translation = "[100,300]"
+      translation = "[90,350]"
       visible = "false"
       height = "250"
+      width="350"
     />
 
     <poster
       id = "rightAnimal"
-      translation = "[680,300]"
+      translation = "[950,350]"
       visible = "false"
       height = "250"
-  
+      width = "250"
+
     />
     
     <Poster

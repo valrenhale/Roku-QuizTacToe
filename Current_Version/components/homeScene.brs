@@ -70,6 +70,11 @@ sub init()
     m.questionBankMCQ.AddTail("Who won the Nobel Prize with Malala Yousafzai?")
     m.questionBankMCQ.AddTail("Which soccer player is nicknamed 'the Golden Boy' in Spanish")
     m.questionBankMCQ.AddTail("What is the largest lake on Earth?")
+    m.questionBankMCQ.AddTail("What is the most dangerous city in the Americas out of these 4?")
+    m.questionBankMCQ.AddTail("Find the odd one out")
+    m.questionBankMCQ.AddTail("Who was the man who led 6 countries to independence from Spain?")
+    m.questionBankMCQ.AddTail("Which was never a political party in the US?")
+    m.questionBankMCQ.AddTail("Which of these countries got independence from the US?")
 
     m.answerBankMCQ = createObject("roList")
      m.answerBankMCQ.AddTail("Los Angeles, CA")
@@ -87,6 +92,11 @@ sub init()
      m.answerBankMCQ.AddTail("Kailash Satyarthi")
      m.answerBankMCQ.AddTail("Diego Maradona")
      m.answerBankMCQ.AddTail("Caspian Sea")
+     m.answerBankMCQ.AddTail("Bogota")
+     m.answerBankMCQ.AddTail("Ryan Reynolds")
+     m.answerBankMCQ.AddTail("Simon Bolivar")
+     m.answerBankMCQ.AddTail("Native Independence")
+     m.answerBankMCQ.AddTail("Philippines")
 
     m.choicesBankMCQ = [
         ["New York, NY", "Denver, CO", "Los Angeles, CA", "New Orleans, LA"],
@@ -104,6 +114,11 @@ sub init()
         ["Barack Obama", "Daron Acemoglu", "Kailash Satyarthi", "Demis Hassabis"],
         ["Pele", "Diego Maradona", "Eusebio", "Lionel Messi"],
         ["Red Sea", "Lake Huron", "Caspian Sea", "Lake Superior"]
+        ["Mexico City" , "Bogota" , "Detroit" , "Tegucigalpa"
+        ["Paul Rudd", "Taylor Swift", "Lebron James", "Ryan Reynolds"]
+        ["Hugo Chavez", "Simon Bolivar", "Francisco Franco", "Edgar Renteria"]
+        ["Know Nothing", "Federalists", "Native Independence", "Democrat-Republicans"]
+        ["Panama", "Philippines", "Puerto Rico", "Canada"]
     ]
     'check variable
     m.status = 0
@@ -882,7 +897,7 @@ sub updateAnimalDisplay()
     
     if m.turnLabel.text = "Chicken's turn"
         leftAnimal.uri = "pkg:/images/x.png"  ' or whatever X image you want
-        rightAnimal.uri = "pgk:/images/sadCapy.png"  ' or whatever O image you want
+        rightAnimal.uri = "pkg:/images/sadCapy.png"  ' or whatever O image you want
         leftAnimal.visible = true
         rightAnimal.visible = true
     else if m.turnLabel.text = "Capybara's turn"

@@ -30,7 +30,7 @@
 
     <Poster
       id="clickScreen"
-      uri="https://b-o09.github.io/host/rokuStartClick.png"
+      uri="pkg:/images/rokuStartClick.png"
       visible = "false"
     />
 
@@ -45,7 +45,7 @@
 
     <Poster
       id="startScreen"
-      uri="https://b-o09.github.io/host/startScreen.png"
+      uri="pkg:/images/startScreen.png"
     />
 
     <Poster
@@ -106,11 +106,11 @@
       id = "response"
       visible = "false"
       translation = "[470, 250]"
-      iconUri = "https://b-o09.github.io/host/capy.png"
-      focusedIconUri = "https://b-o09.github.io/host/capy.png"
+      iconUri = "pkg:/images/capy.png"
+      focusedIconUri = "pkg:/images/capy.png"
       focusBitmapUri = "https://b-o09.github.io/host/focused.png"
       focusedTextColor = "#000000"
-      textFont = "MediumBoldSystemFont" 
+      textFont = "MediumBoldSystemFont"
     />
     
     <Poster
@@ -146,11 +146,9 @@
 
     <Label
       id  = "categoryLabel"
-      translation= "[0,695]"
-      text= "Press the fastforward(>>) button to change category!                                                                                             Currently set to: Mixed"
+      translation= "[158,618]"
+      text= "Press the fastforward (>>) button to change category!                 Current Category: Mixed"
       visible = "true" 
-      />
-
-    
+      />    
   </children>
 </component>

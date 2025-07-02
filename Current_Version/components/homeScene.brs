@@ -1,4 +1,7 @@
 sub init()
+    
+    
+    
     ? "[start_scene] init"
     
     ? "[home_scene] init"
@@ -95,7 +98,7 @@ sub init()
         ["Red Sea", "Lake Huron", "Caspian Sea", "Lake Superior"]
     ]
     'check variable
-
+    m.status = 0
 
     'mode variable
     m.mode = 1' 1 for mixed, 2 for TorF, 3 for MCQ
@@ -221,7 +224,7 @@ sub init()
     m.questionLabel.wrap = true
     m.questionLabel.maxLines = 3
 
-    ' font setup
+     ' font setup
     m.moodcake = CreateObject("roSGNode", "Font")
     m.moodcake.uri = "pkg:/fonts/Moodcake.ttf"
     m.moodcake.size = 50
@@ -270,11 +273,10 @@ sub init()
     m.questionaudioContent.url = "https://audio.jukehost.co.uk/6ymP8ODVlSdxuNXvCUIypxoMzYZUvjJg"
     m.questionaudio.content = m.questionaudioContent
     m.questionaudio.control = "none"
-    
 end sub
 
 sub OnButtonSelected()
-    m.questionBackground.visible= false
+    m.questionBackground.visible = false
     m.buttonresponse.setFocus(false)
     m.buttonresponse.visible = false
     m.questionlabel.visible = false
@@ -328,6 +330,7 @@ sub backtoMenu()
     m.questionActive = false
 
     'reset game state
+    m.status = 0 ' only on start screen fast forward works
     m.count = 0
     m.cursorRow = 0
     m.cursorCol = 0
@@ -355,7 +358,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     hoi = m.grid[0].width
    
     if press then
-        if key = "fastforward"
+        if key = "fastforward" and m.status = 0
             m.mode = m.mode + 1
             if m.mode > 3
                 m.mode = 1
@@ -597,6 +600,7 @@ sub showGameElements()
 end sub
 
 sub onHiddenStartButtonPressed()
+    m.status = 1
     m.categoryLabel.visible ="false"
     ' hide start screen and show click screen
     m.startScreen.visible = false
@@ -619,6 +623,7 @@ sub TorF()
     m.questionActive = true
     m.audio.control = "stop"
     m.questionaudio.control = "play"
+    m.questionaudio.loop = true
 
     randomNum = RND(m.questionBankTorF.Count()) - 1
     m.currentCorrectAnswer = m.answerBankTorF[randomNum] 'correct answer'
@@ -639,6 +644,7 @@ sub triviaQuestion()
     
     m.audio.control = "stop"
     m.questionaudio.control = "play"
+    m.questionaudio.loop = true
 
     randomNum = RND(m.questionBankMCQ.Count()) - 1
     m.currentCorrectAnswer = m.answerBankMCQ[randomNum] 'correct answer'
@@ -679,19 +685,19 @@ sub TriviaCorrect()
     end if
 end sub 
 
-' sub selectRandomQ()
-  '   tempList = createObject("roList")
-  '   for item = 0 to m.QuestionBank.count() - 1
-   '     if m.QuestionBank[item] = true ' if question appears on the screen
-  '          tempList.AddTail(item)
-  '            if m.QuestionBank[m.RandomNum] = m.tempList[item]
-  '              ? "randomNum is equal to temp"
-  '              m.QuestionBank.delete(m.RandomNum)
-   '             m.AnswerBank.delete(m.RandomNum)
-  '            end if
-  ' '     end if
-   ' end for
-'end sub
+sub selectRandomQ()
+    tempList = createObject("roList")
+    for item = 0 to m.QuestionBank.count() - 1
+        if m.QuestionBank[item] = true ' if question appears on the screen
+            tempList.AddTail(item)
+              if m.QuestionBank[m.RandomNum] = m.tempList[item]
+                ? "randomNum is equal to temp"
+                m.QuestionBank.delete(m.RandomNum)
+                m.AnswerBank.delete(m.RandomNum)
+              end if
+        end if
+    end for
+end sub
 
 sub showWinWithConfetti()
 
@@ -728,8 +734,18 @@ sub onConfettiAnimationComplete()
     end if
 end sub
 
-sub categoryLabel()
-        
+sub Randomizer()
+
+tempIndex = 0
+tempList = CreateObject("RoList")
+
+for each question in m.questionBankTorF
+tempList.AddTail(tempIndex)
+tempIndex += 1
+end for
+
+
+
 end sub
 
 

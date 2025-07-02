@@ -50,4 +50,7 @@
   Bug: Questions randomized come up again twice or thrice (need to fix!)
 
   DAY 12 - 7/1 TUESDAY
-  Incorporated title/header fonts (Moodcake) and randomizing questions correctly
+  Incorporated title/header fonts (Moodcake) and tried to randomize questions correctly (fail)
+
+  DAY 13 - 7/2 WEDNESDAY (SUBHA LAST DAY)
+  

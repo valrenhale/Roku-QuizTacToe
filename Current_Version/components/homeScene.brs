@@ -1,7 +1,4 @@
 sub init()
-    
-    
-    
     ? "[start_scene] init"
     
     ? "[home_scene] init"
@@ -26,6 +23,12 @@ sub init()
     m.questionBankTorF.AddTail("The US was colonized by the British, Dutch, Spanish, French, and Swedish")
     m.questionBankTorF.AddTail("Kids born on US military bases are US citizens")
     m.questionBankTorF.AddTail("The official language of the US has always been English")
+    m.questionBankTorF.AddTail("The World Cup is the most viewed sports event in the world")
+    m.questionBankTorF.AddTail("Pakistan has never had a female head of state")
+    m.questionBankTorF.AddTail("The Dutch are the tallest people in the world")
+    m.questionBankTorF.AddTail("Humans and Bananas share 50% of their DNA")
+    m.questionBankTorF.AddTail("Moss grows on the north side of a tree")
+
 
     m.answerBankTorF = CreateObject("roList")
     m.answerBankTorF.AddTail("False")
@@ -42,6 +45,11 @@ sub init()
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("False")
 
 
@@ -169,7 +177,7 @@ sub init()
     m.x = []
     m.xContainer = m.top.findNode("xContainer")
     xSize = 0.25
-    xImg = "https://b-o09.github.io/host/x.png"
+    xImg = "pkg:/images/x.png"
     createGrid(m.x, m.xContainer, xSize, numCol, xImg)
     ' make x invisible
     for i = 0 to m.x.Count() - 1
@@ -180,7 +188,7 @@ sub init()
     m.o = []
     m.oContainer = m.top.findNode("oContainer")
     oSize = 0.25
-    oImg = "https://b-o09.github.io/host/o.png"
+    oImg = "pkg:/images/o.png"
     createGrid(m.o, m.oContainer, oSize, numCol, oImg)
     ' make o invisible
     for i = 0 to m.o.Count() - 1
@@ -238,6 +246,11 @@ sub init()
     m.questionLabel.width = m.scrWidth  
     m.questionLabel.horizAlign = "center"
 
+    m.dangrek = CreateObject("roSGNode", "Font")
+    m.dangrek.uri = "pkg:/fonts/Dangrek-Regular.ttf"
+    m.dangrek.size = 25
+    m.categoryLabel.font = m.dangrek
+
     ' button response setup'
     m.ButtonResponse = m.top.FindNode("response")
     m.ButtonResponse.size = 60
@@ -281,6 +294,8 @@ sub OnButtonSelected()
     m.buttonresponse.visible = false
     m.questionlabel.visible = false
     m.questionActive = false
+    'RandomizerTF()
+    'RandomizerMCQ()
     triviaCorrect()
     if m.winLabel.text = "X Wins!" or m.winLabel.text = "O Wins!" or m.winLabel.text = "It's a Tie!" then
         m.cursor.visible = false
@@ -301,6 +316,9 @@ sub openGame()
         m.cursor.visible = true
         m.cursor.setFocus(true)
         m.gridArray.visible = true
+        
+        RecycleMCQ()
+        RecycleTF()
     end if  
 end sub
 
@@ -350,6 +368,9 @@ sub backtoMenu()
     m.startScreen.visible = true
     m.hiddenStartButton.visible = true
     m.hiddenStartButton.setFocus(true)
+    
+    RecycleMCQ()
+    RecycleTF()
 end sub
 
 ' remote interaction setup
@@ -364,11 +385,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                 m.mode = 1
             end if
             if m.mode = 1
-                m.categoryLabel.text = "Press the fastforward(>>) button to change category!                                                                                         Currently set to: Mixed"
+                m.categoryLabel.text = "Press the fastforward(>>) button to change category!                        Current Category: Mixed"
             else if m.mode = 2
-                m.categoryLabel.text = "Press the fastforward(>>) button to change category!                                                                                         Currently set to: True or False"
+                m.categoryLabel.text = "Press the fastforward(>>) button to change category!             Currently Category: True or False"
             else if m.mode = 3
-                m.categoryLabel.text = "Press the fastforward(>>) button to change category!                                                                                         Currently set to: Multiple Choice"
+                m.categoryLabel.text = "Press the fastforward(>>) button to change category!             Current Category: Multiple Choice"
             handled = true
             end if 
         end if 
@@ -385,10 +406,8 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             end if
         backtoMenu()
         handled = true
-        end if
 
-    
-        if m.cursor.visible = true
+        else if m.cursor.visible = true and m.questionActive = false
             if key = "up" and m.cursorRow > 0
                 m.cursorRow = m.cursorRow - 1
                 m.cursor.translation = [m.cursor.translation[0], m.cursor.translation[1] - hoi]
@@ -467,7 +486,7 @@ end sub
 ' display x or y as appropriate
 sub displayXorY()
     if m.count MOD 2 = 0 then
-        m.turnlabel.text = "O's turn"
+        m.turnlabel.text = "Capybara's turn"
         for i = 0 to m.x.Count() - 1
             if m.x[i].visible = false and m.o[i].visible = false then
                 if m.x[i].translation[0] = m.cursor.translation[0] and m.x[i].translation[1] = m.cursor.translation[1] then
@@ -478,7 +497,7 @@ sub displayXorY()
         end for
         win()
     else
-        m.turnLabel.text = "X's turn"
+        m.turnLabel.text = "Chicken's turn"
         for i = 0 to m.o.Count() - 1
             if m.x[i].visible = false and m.o[i].visible = false then
                 if m.o[i].translation[0] = m.cursor.translation[0] and m.o[i].translation[1] = m.cursor.translation[1] then
@@ -597,6 +616,7 @@ sub showGameElements()
     m.cursor.visible = true
     m.cursor.setFocus(true)
     m.turnlabel.visible = true
+    updateAnimalDisplay()
 end sub
 
 sub onHiddenStartButtonPressed()
@@ -614,7 +634,7 @@ end sub
 sub onClickScreenTimerFire()
     ' hide click screen and show game elements after 0.5 seconds
     m.clickScreen.visible = false
-    m.winLabel.text = "X starts first" ' show after click screen
+    m.winLabel.text = "Chicken starts first" ' show after click screen
     showGameElements()
 end sub
 
@@ -625,10 +645,10 @@ sub TorF()
     m.questionaudio.control = "play"
     m.questionaudio.loop = true
 
-    randomNum = RND(m.questionBankTorF.Count()) - 1
-    m.currentCorrectAnswer = m.answerBankTorF[randomNum] 'correct answer'
-    m.top.FindNode("global").text = randomNum.ToStr()
-    m.questionLabel.text = m.questionBankTorF[randomNum] 'question text'
+    m.randomNum = RND(m.questionBankTorF.Count()-1)
+    m.currentCorrectAnswer = m.answerBankTorF[m.randomNum] 'correct answer'
+    m.top.FindNode("global").text = m.randomNum.ToStr()
+    m.questionLabel.text = m.questionBankTorF[m.randomNum] 'question text'
     m.questionBackground.visible = true
     if m.questionBackground.visible = true
         m.questionLabel.visible = true
@@ -646,16 +666,16 @@ sub triviaQuestion()
     m.questionaudio.control = "play"
     m.questionaudio.loop = true
 
-    randomNum = RND(m.questionBankMCQ.Count()) - 1
-    m.currentCorrectAnswer = m.answerBankMCQ[randomNum] 'correct answer'
-    m.questionLabel.text = m.questionBankMCQ[randomNum] 'question text'
+    m.randomInt = RND(m.questionBankMCQ.Count()-1)
+    m.currentCorrectAnswer = m.answerBankMCQ[m.randomInt] 'correct answer'
+    m.questionLabel.text = m.questionBankMCQ[m.randomInt] 'question text'
     m.questionBackground.visible = true
     if m.questionBackground.visible = true
     m.questionLabel.visible = true
     end if
     m.ButtonResponse.visible = true
     m.ButtonResponse.setFocus(true)
-    m.ButtonResponse.buttons = m.choicesBankMCQ[randomNum]
+    m.ButtonResponse.buttons = m.choicesBankMCQ[m.randomInt]
 end sub
 
 sub TriviaCorrect()
@@ -667,9 +687,11 @@ sub TriviaCorrect()
         m.audio.control = "play"
         m.questionaudio.control = "stop"
         if m.count MOD 2 = 0 then
-            m.turnlabel.text = "X's turn"
+            m.turnlabel.text = "Chicken's turn"
+            updateAnimalDisplay()
         else 
-            m.turnlabel.text = "O's turn"
+            m.turnlabel.text = "Capybara's turn"
+            updateAnimalDisplay()
         end if
         displayXorY()
     else
@@ -678,9 +700,11 @@ sub TriviaCorrect()
         m.audio.control = "play"
         m.questionaudio.control = "stop"
         if m.count MOD 2 = 0 then
-            m.turnlabel.text = "X's turn"
+            m.turnlabel.text = "Chicken's turn"
+            updateAnimalDisplay()
         else 
-            m.turnlabel.text = "O's turn" ' changed X and O order
+            m.turnlabel.text = "Capybara's turn" ' changed X and O order
+            updateAnimalDisplay()
         end if
     end if
 end sub 
@@ -734,18 +758,141 @@ sub onConfettiAnimationComplete()
     end if
 end sub
 
-sub Randomizer()
-
-tempIndex = 0
-tempList = CreateObject("RoList")
-
-for each question in m.questionBankTorF
-tempList.AddTail(tempIndex)
-tempIndex += 1
+sub RecycleTF() 
+m.qListTorF = createObject("RoList")
+m.aListTorF = createObject("RoList")
+m.cListTorF = createObject("RoList")
+for i = 0 to m.questionBankTorF.count() - 1
+    m.qListTorF.AddTail(m.questionBankTorF[i])
 end for
 
-
+for i = 0  to m.answerBankTorF.count() - 1
+    m.aListTorF.AddTail(m.answerBankTorF[i])
+end for
 
 end sub
 
+sub RecycleMCQ()
+    m.qListMCQ = createObject("RoList")
+    m.aListMCQ = createObject("RoList")
+    m.cListMCQ = createObject("RoList")
+    
+    for i = 0 to m.questionBankMCQ.count() - 1
+        m.qListMCQ.AddTail(m.questionBankMCQ[i])
+    end for
 
+    for i = 0 to m.answerBankMCQ.count() - 1
+        m.aListMCQ.AddTail(m.answerBankMCQ[i])
+    end for
+    
+    for i = 0 to m.choicesBankMCQ.count() - 1
+        m.cListMCQ.AddTail(m.choicesBankMCQ[i])    
+    end for
+    
+end sub
+
+
+sub RandomizerTF()
+    seen = false
+    tempIndex = 0
+    tempList = createObject("RoList")
+
+    for each question in m.questionBankTorF
+        tempList.AddTail(tempIndex)
+        tempIndex += 1
+    end for
+
+    'check if label appeared already meaning already seen'
+    if seen = false
+        if m.questionLabel.text <> "" then
+            seen = true
+            index = m.randomNum
+        end if
+    end if
+
+    if seen = true
+        ? "is true"
+        for i = 0 to tempList.count() - 1
+            if tempList[i] = index
+                m.questionBankTorF.delete(i)
+                m.answerBankTorF.delete(i)
+                tempList.delete(i)
+            end if
+        end for
+    end if
+    
+    if m.questionBankTorF.count() = 0 then
+        ?"recycle true or false"
+        m.questionBankTorF = m.qListTorF
+        m.answerBankTorF = m.aListTorF
+
+        if seen = true
+            m.questionBankTorF.delete(index)
+            m.answerBankTorF.delete(index)
+        end if
+    end if
+end sub
+
+sub RandomizerMCQ()
+    seen = false
+    tempIndex = 0
+    tempList = CreateObject("RoList")
+
+    for each question in m.questionBankMCQ
+        tempList.AddTail(tempIndex)
+        tempIndex += 1
+    end for
+
+    'check if label appeared already meaning already seen'
+    if seen = false
+        if m.questionLabel.text <> "" then
+            seen = true
+            index = m.randomInt
+        end if
+    end if
+
+    if seen = true
+        ? "is true"
+        for i = 0 to tempList.count() - 1
+            if tempList[i] = index
+                m.questionBankMCQ.delete(i)
+                m.choicesBankMCQ.delete(i)
+                m.answerBankMCQ.delete(i)
+                tempList.delete(i)
+            end if
+        end for
+    end if
+
+    if m.questionBankMCQ.count() = 0 then
+        ?"recycle mcq"
+        m.questionBankMCQ = m.qListMCQ
+        m.answerBankMCQ = m.aListMCQ
+        m.choicesBankMCQ = m.cListMCQ
+        if seen = true
+            m.questionBankMCQ.delete(index)
+            m.choicesBankMCQ.delete(index)
+            m.answerBankMCQ.delete(index)
+        end if
+    end if
+end sub
+
+sub updateAnimalDisplay()
+    leftAnimal = m.top.findNode("leftAnimal")
+    rightAnimal = m.top.findNode("rightAnimal")
+    
+    if m.turnLabel.text = "Chicken's turn"
+        leftAnimal.uri = "pkg:/images/x.png"  ' or whatever X image you want
+        rightAnimal.uri = "pgk:/images/sadCapy.png"  ' or whatever O image you want
+        leftAnimal.visible = true
+        rightAnimal.visible = true
+    else if m.turnLabel.text = "Capybara's turn"
+        rightAnimal.uri = "pkg:/images/o.png"
+        leftAnimal.uri = "pkg:/images/angryChicken.png"  ' or whatever O image you want
+        rightAnimal.visible = true
+        leftAnimal.visible = true
+    else
+        ' Hide both when game is over or not started
+        leftAnimal.visible = false
+        rightAnimal.visible = false
+    end if
+end sub

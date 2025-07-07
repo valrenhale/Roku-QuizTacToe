@@ -53,4 +53,10 @@
   Incorporated title/header fonts (Moodcake) and tried to randomize questions correctly (fail)
 
   DAY 13 - 7/2 WEDNESDAY (SUBHA LAST DAY)
-  
+  Randomized questions but deleted from database at the end (works for mixed, true or false, and multiple choice)
+  Audio works using JBL speaker 
+
+*WEEK 4 - 7/7 to 7/11 of 2025*
+
+  DAY 14 - 7/7 MONDAY (AP SCORES OUT)
+  Tony working on randomizing question functionality with Sami; Sofia and Kathy working on showing correct answer when user gets question wrong

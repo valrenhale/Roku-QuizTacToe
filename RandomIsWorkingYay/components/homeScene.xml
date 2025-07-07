@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="homeScene" extends="Scene">
+ <script type="text/brightscript" uri="pkg:/components/homeScene.brs"/>
+	<children>
+
+    <Timer
+      id="clickScreenTimer"
+      duration="0.2"
+      repeat="false"
+    />
+    
+    <!-- Simple falling animation with different speeds -->
+    <Animation id="confettiAnimation" duration="10.0" repeat="false" easeFunction="linear">
+    <!-- First confetti falls slower -->
+      <Vector2DFieldInterpolator 
+        key="[0.0, 1.0]" 
+        keyValue="[[0, -300], [0, 900]]" 
+        fieldToInterp="confetti1.translation"
+      />
+
+  <!-- Second confetti falls faster and starts slightly later -->
+      <Vector2DFieldInterpolator 
+        key="[0.2, 1.0]" 
+        keyValue="[[0, -720], [0, 920]]" 
+        fieldToInterp="confetti2.translation"
+      />
+
+    </Animation>
+
+
+    <Poster
+      id="clickScreen"
+      uri="pkg:/images/rokuStartClick.png"
+      visible = "false"
+    />
+
+    <Button
+      id="hiddenStartButton"
+      width="0.5"
+      height="0.5"
+      translation="[0, 0]"
+      focusable="true"
+      visible="false" 
+    />
+
+    <Poster
+      id="startScreen"
+      uri="pkg:/images/startScreen.png"
+    />
+
+    <Poster
+      id="background"
+      uri="https://b-o09.github.io/host/bg.png"
+      visible = "false"
+    />
+
+    <Group
+      id="gridContainer"
+    />
+
+    <Group
+      id="xContainer"
+    />
+
+    <Group
+      id="oContainer"
+    />
+    
+    <Label
+      id = "winLabel"
+      text = ""
+      translation = "[0, 25]"
+      visible = "true"
+      color = "#FFFFFF"
+      font = "font:LargeBoldSystemFont"
+    />
+    
+    <Label
+      id = "turnLabel"
+      text = " "
+      visible = "true"
+      color = "#FFFFFF"
+      font = "font:LargeBoldSystemFont"
+    />
+
+    <poster
+      id = "leftAnimal"
+      translation = "[70,350]"
+      visible = "false"
+      height = "250"
+      width="350"
+    />
+
+    <poster
+      id = "rightAnimal"
+      translation = "[950,350]"
+      visible = "false"
+      height = "250"
+      width = "250"
+
+    />
+    
+    <Poster
+      id="cursor"
+      uri="https://b-o09.github.io/host/cursor.png"
+    />
+
+    <Poster
+      id="questionBackground"
+      uri="pkg:/images/questionBackground.png"
+      visible = "false"
+    />
+
+    <Label
+      id="question"
+      visible="true"
+      text=""
+      translation="[0,15]"
+      font="font:MediumBoldSystemFont"
+    />
+
+    <ButtonGroup 
+      id = "response"
+      visible = "false"
+      translation = "[470, 250]"
+      iconUri = "pkg:/images/capy.png"
+      focusedIconUri = "pkg:/images/capy.png"
+      focusBitmapUri = "https://b-o09.github.io/host/focused.png"
+      focusedTextColor = "#000000"
+      textFont = "MediumBoldSystemFont"
+    />
+    
+    <Poster
+      id="xWinScreen"
+      uri="https://b-o09.github.io/host/xWin.png"
+      visible = "false"
+    />
+    
+    <Poster
+      id="oWinScreen"
+      uri="https://b-o09.github.io/host/oWin.png"
+      visible = "false"
+  
+    />
+
+    <Poster id="confetti1"
+      uri="https://b-o09.github.io/host/confetti.png"
+      visible="false"
+  
+    />
+    
+    <Poster id="confetti2"
+      uri="https://b-o09.github.io/host/confetti.png"
+      visible="false"
+    />
+
+    <Label
+      id="global"
+      text="hihii"
+      visible = "false"
+      translation="[400, 400]"
+    />
+
+    <Label
+      id  = "categoryLabel"
+      translation= "[158,618]"
+      text= "Press the fastforward (>>) button to change category!                 Current Category: Mixed"
+      visible = "true" 
+      />    
+  </children>
+</component>

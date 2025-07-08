@@ -1,0 +1,1163 @@
+sub init()
+    ? "[start_scene] init"
+    
+    ? "[home_scene] init"
+
+    ? "[xWin_scene] init"
+
+    ? "[oWin_scene] init"
+
+    m.aiLabel = m.top.FindNode("aiLabel")
+
+    ' strikethrough line setup
+    m.strikethrough = m.top.findNode("strikethrough")
+    m.strikethrough.visible = false
+    m.strikethroughAnimation = m.top.findNode("strikethroughAnimation")
+    m.strikethroughAnimation.observeField("state", "onStrikethroughComplete")
+
+    ' q bank and a bank setup for TorF
+    m.TorFList = CreateObject("roList")
+    m.questionBankTorF = CreateObject("roList")
+    m.questionBankTorF.AddTail("The sky is blue because of the ocean's reflection")
+    m.questionBankTorF.AddTail("Humans will die within 3 hours of not having water")
+    m.questionBankTorF.AddTail("Vending machines are more deadly than sharks")
+    m.questionBankTorF.AddTail("India has 22 official languages")
+    m.questionBankTorF.AddTail("Water constantly breaks into H and OH molecules then recombines into H2O")
+    m.questionBankTorF.AddTail("Norway and North Korea are only one country apart")
+    m.questionBankTorF.AddTail("LA28 is the first time the Summer Olympics will be held in the US")
+    m.questionBankTorF.AddTail("Hamburgers and fries are purely American")
+    m.questionBankTorF.AddTail("Paris is the city with the most French speakers")
+    m.questionBankTorF.AddTail("Mammoths were extinct before the pyramids were built")
+    m.questionBankTorF.AddTail("Cleopatra lived closer to the invention of the iPhone than to the building of the pyramids")
+    m.questionBankTorF.AddTail("John Tyler's (President from 1841-1845) last grandson died in May 2025")
+    m.questionBankTorF.AddTail("The US was colonized by the British, Dutch, Spanish, French, and Swedish")
+    m.questionBankTorF.AddTail("Kids born on US military bases are US citizens")
+    m.questionBankTorF.AddTail("The official language of the US has always been English")
+    m.questionBankTorF.AddTail("The World Cup is the most viewed sports event in the world")
+    m.questionBankTorF.AddTail("Pakistan has never had a female head of state")
+    m.questionBankTorF.AddTail("The Dutch are the tallest people in the world")
+    m.questionBankTorF.AddTail("Humans and Bananas share 50% of their DNA")
+    m.questionBankTorF.AddTail("Moss grows on the north side of a tree")
+    m.questionBankTorF.AddTail("Friends used to be called “Insomnia Cafe”")
+    m.questionBankTorF.AddTail("The Office is set in Detroit, MI")
+    m.questionBankTorF.AddTail("Thriller by MJ is the highest selling album ever")
+    m.questionBankTorF.AddTail("Justin Bieber is American")
+    m.questionBankTorF.AddTail("Jason Mraz supplies avocados to Chipotle")
+    m.questionBankTorF.AddTail("Bruno Mars is his real name")
+    m.questionBankTorF.AddTail("Barack Obama is the only president born off the mainland")
+    m.questionBankTorF.AddTail("The US has four of the top 5 air forces")
+    m.questionBankTorF.AddTail("Russia has the most time zones")
+    m.questionBankTorF.AddTail("The US has the most immigrants")
+    m.questionBankTorF.AddTail("Only about 20 countries play American football")
+    m.questionBankTorF.AddTail("The English called it soccer first")
+    m.questionBankTorF.AddTail("English is the most spoken language in the world")
+    m.questionBankTorF.AddTail("The US is undefeated against England in soccer")
+    m.questionBankTorF.AddTail("Haiti was an American colony for 20 years in the 20th century")
+    m.questionBankTorF.AddTail("Luxembourg is a city state")
+    m.questionBankTorF.AddTail("French Indochina was only Vietnam")
+    m.questionBankTorF.AddTail("The US follows a ranked size cities model")
+    m.questionBankTorF.AddTail("Apple is headquartered in San Francisco")
+    m.questionBankTorF.AddTail("McDonald’s sells pizza in some locations")
+    m.questionBankTorF.AddTail("America runs on Starbucks")
+    m.questionBankTorF.AddTail("Taco Bell has locations in Mexico")
+    m.questionBankTorF.AddTail("You can be a foreign-born and be a American Senator")
+    m.questionBankTorF.AddTail("There is a current NFL player from San Jose")
+    m.questionBankTorF.AddTail("Truman invented the interstate highway system")
+    m.questionBankTorF.AddTail("Musk owns 6 companies in some capacity")
+    m.questionBankTorF.AddTail("The US has solely two political parties")
+    m.questionBankTorF.AddTail("The first AP test was administered in 1952")
+    m.questionBankTorF.AddTail("College Board considers themselves a non-profit")
+    m.questionBankTorF.AddTail("The Bay has 44 Fortune 500 companies")
+
+    m.answerBankTorF = CreateObject("roList")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+
+    'q bank and a bank setup for MCQ'
+    m.mcqList = createObject("roList")
+    m.questionBankMCQ = CreateObject("roList")
+    m.questionBankMCQ.AddTail("Where was Michael B Jordan born")
+    m.questionBankMCQ.AddTail("What is the capital of Canada?")
+    m.questionBankMCQ.AddTail("Where is Microsoft headquartered?")
+    m.questionBankMCQ.AddTail("What is the largest pizza chain in the world?")
+    m.questionBankMCQ.AddTail("What is the chemical symbol for gold?")
+    m.questionBankMCQ.AddTail("What country did Indonesia get independence from?")
+    m.questionBankMCQ.AddTail("What country is Rihanna from?")
+    m.questionBankMCQ.AddTail("What language does Liechtenstein speak?")
+    m.questionBankMCQ.AddTail("How many countries speak French officially?")
+    m.questionBankMCQ.AddTail("What is the lifespan of a rhino?")
+    m.questionBankMCQ.AddTail("What is the currency of Japan?")
+    m.questionBankMCQ.AddTail("Who was the father of genetics?")
+    m.questionBankMCQ.AddTail("Who won the Nobel Prize with Malala Yousafzai?")
+    m.questionBankMCQ.AddTail("Which soccer player is nicknamed 'the Golden Boy' in Spanish")
+    m.questionBankMCQ.AddTail("What is the largest lake on Earth?")
+    m.questionBankMCQ.AddTail("What is the most dangerous city in the Americas out of these 4?")
+    m.questionBankMCQ.AddTail("Find the odd one out")
+    m.questionBankMCQ.AddTail("Who was the man who led 6 countries to independence from Spain?")
+    m.questionBankMCQ.AddTail("Which was never a political party in the US?")
+    m.questionBankMCQ.AddTail("Which of these countries got independence from the US?")
+    m.questionBankMCQ.AddTail("Where is the late Liverpool winger Diogo Jota from?")
+    m.questionBankMCQ.AddTail("Which two NBA legends were born in the same hospital?")
+    m.questionBankMCQ.AddTail("Find the odd one out.")
+    m.questionBankMCQ.AddTail("Where is Nasi Goreng from?")
+    m.questionBankMCQ.AddTail("What is the most viewed commercial music video on YT?")
+    m.questionBankMCQ.AddTail("Which of these countries does not have birthright citizenship?")
+    m.questionBankMCQ.AddTail("What is the strongest separatist movement in the world?")
+    m.questionBankMCQ.AddTail("Which of these is an ethnicity (Hint: be very technical)?")
+    m.questionBankMCQ.AddTail("What country is Ronaldo from? (Hint: be careful)")
+    m.questionBankMCQ.AddTail("Which of these is a position in only one football?")
+    m.questionBankMCQ.AddTail("Find the odd one out.")
+    m.questionBankMCQ.AddTail("What race has the majority in California?")
+    m.questionBankMCQ.AddTail("Which of these countries has a primate city?")
+    m.questionBankMCQ.AddTail("What country has the lowest population density?")
+    m.questionBankMCQ.AddTail("What is the strongest currency in the world?")
+    m.questionBankMCQ.AddTail("Who is the newest EU member?")
+    m.questionBankMCQ.AddTail("What city is NBA star Luka Doncic from?")
+    m.questionBankMCQ.AddTail("Which soccer GK is the “sweeper keeper”?")
+    m.questionBankMCQ.AddTail("What is the closest US state to Africa?")
+    m.questionBankMCQ.AddTail("What percent of Canadians live south of Minneapolis?")
+    m.questionBankMCQ.AddTail("What is the northernmost city in the US?")
+    m.questionBankMCQ.AddTail("How many time zones does the US have?")
+    m.questionBankMCQ.AddTail("How many hours behind SF is the most behind place in the world?:")
+    m.questionBankMCQ.AddTail("How many presidents have been assassinated in office?")
+    m.questionBankMCQ.AddTail("What country has the most tennis grand slams (both genders)?")
+    m.questionBankMCQ.AddTail("What country has sent the most players to the NFL (besides the US and Canada)?")
+    m.questionBankMCQ.AddTail("What YT channel was the first to reach 1 million?")
+    m.questionBankMCQ.AddTail("What is the record for AP tests taken by a singular student?")
+    m.questionBankMCQ.AddTail("What is the most western city on the mainland US?")
+    m.questionBankMCQ.AddTail("What is the longest interstate highway in the US?")
+
+    m.answerBankMCQ = createObject("roList")
+    m.answerBankMCQ.AddTail("Los Angeles, CA")
+    m.answerBankMCQ.AddTail("Ottawa")
+    m.answerBankMCQ.AddTail("Seattle, WA")
+    m.answerBankMCQ.AddTail("Domino's")
+    m.answerBankMCQ.AddTail("Au")
+    m.answerBankMCQ.AddTail("Netherlands")
+    m.answerBankMCQ.AddTail("Barbados")
+    m.answerBankMCQ.AddTail("German")
+    m.answerBankMCQ.AddTail("29")
+    m.answerBankMCQ.AddTail("50")
+    m.answerBankMCQ.AddTail("Yen")
+    m.answerBankMCQ.AddTail("Mendel")
+    m.answerBankMCQ.AddTail("Kailash Satyarthi")
+    m.answerBankMCQ.AddTail("Diego Maradona")
+    m.answerBankMCQ.AddTail("Caspian Sea")
+    m.answerBankMCQ.AddTail("Bogota")
+    m.answerBankMCQ.AddTail("Ryan Reynolds")
+    m.answerBankMCQ.AddTail("Simon Bolivar")
+    m.answerBankMCQ.AddTail("Native Independence")
+    m.answerBankMCQ.AddTail("Philippines")
+    m.answerBankMCQ.AddTail("Portugal")
+    m.answerBankMCQ.AddTail("Steph and Lebron")
+    m.answerBankMCQ.AddTail("Christian McCaffrey")
+    m.answerBankMCQ.AddTail("Indonesia")
+    m.answerBankMCQ.AddTail("Despacito")
+    m.answerBankMCQ.AddTail("South Africa")
+    m.answerBankMCQ.AddTail("Catalonia")
+    m.answerBankMCQ.AddTail("German")
+    m.answerBankMCQ.AddTail("Brazil")
+    m.answerBankMCQ.AddTail("QB")
+    m.answerBankMCQ.AddTail("Oklahoma City, OK")
+    m.answerBankMCQ.AddTail("Latinos")
+    m.answerBankMCQ.AddTail("Mexico")
+    m.answerBankMCQ.AddTail("Mongolia")
+    m.answerBankMCQ.AddTail("Kuwaiti Dinar")
+    m.answerBankMCQ.AddTail("Croatia")
+    m.answerBankMCQ.AddTail("Ljubljana, Slovenia")
+    m.answerBankMCQ.AddTail("Manuel Neuer")
+    m.answerBankMCQ.AddTail("Maine")
+    m.answerBankMCQ.AddTail("90%")
+    m.answerBankMCQ.AddTail("Utkiagvik")
+    m.answerBankMCQ.AddTail("9")
+    m.answerBankMCQ.AddTail("5")
+    m.answerBankMCQ.AddTail("6")
+    m.answerBankMCQ.AddTail("USA")
+    m.answerBankMCQ.AddTail("Germany")
+    m.answerBankMCQ.AddTail("Fred Figglehorn")
+    m.answerBankMCQ.AddTail("30")
+    m.answerBankMCQ.AddTail("Port Orford, OR")
+    m.answerBankMCQ.AddTail("I-90")
+
+    m.choicesBankMCQ = [
+        ["New York, NY", "Denver, CO", "Los Angeles, CA", "New Orleans, LA"],
+        ["Toronto", "Ottawa", "Perth", "London"],
+        ["Austin, TX", "Los Angeles, CA", "Seattle, WA", "Cleveland, OH"],
+        ["Domino's", "Pizza Hut", "Costco", "Little Caesars"],
+        ["Au", "Go", "Gd", "Ag"],
+        ["England", "Netherlands", "France", "Germany"],
+        ["St Kitts", "Jamaica", "Barbados", "Trinidad and Tobago"],
+        ["Dutch", "German", "French", "Polish"],
+        ["56", "29", "25", "22"],
+        ["100", "75", "50", "40"],
+        ["Yen", "Won", "Yuan", "Rupee"],
+        ["Freud", "Mendel", "Durant", "Curie"],
+        ["Barack Obama", "Daron Acemoglu", "Kailash Satyarthi", "Demis Hassabis"],
+        ["Pele", "Diego Maradona", "Eusebio", "Lionel Messi"],
+        ["Red Sea", "Lake Huron", "Caspian Sea", "Lake Superior"]
+        ["Mexico City" , "Bogota" , "Detroit" , "Tegucigalpa"],
+        ["Paul Rudd", "Taylor Swift", "Lebron James", "Ryan Reynolds"],
+        ["Hugo Chavez", "Simon Bolivar", "Francisco Franco", "Edgar Renteria"],
+        ["Know Nothing", "Federalists", "Native Independence", "Democrat-Republicans"],
+        ["Panama", "Philippines", "Puerto Rico", "Canada"],
+        ["Spain", "England", "Portugal", "France"],
+        ["Steph and Lebron", "KD and Lebron", "MJ and Kobe", "MJ and LeBron"],
+        ["Tim Weah", "Davinson Sanchez", "Christian McCaffrey", "Marcus Rashford"],
+        ["Indonesia", "Vietnam", "Laos", "Cambodia"],
+        ["Despacito", "Shape of You", "Blank Space", "Love Story"],
+        ["USA", "Argentina", "Chad", "South Africa"],
+        ["Hawaii", "Basque", "Catalonia", "Scotland"],
+        ["American", "Canadian", "Argentinian", "German"],
+        ["Portugal", "Brazil", "Germany", "France"],
+        ["CB", "LB", "RB", "QB"],
+        ["Gainesville, FL", "West Lafayette, IN", "Ithaca, NY", "Oklahoma City, OK"],
+        ["Latinos", "Asians", "White", "Black"],
+        ["USA", "Germany", "Mexico", "UK"],
+        ["Mongolia", "Russia", "Canada", "Brazil"],
+        ["US Dollar", "UK pound", "Kuwaiti Dinar", "Saudi Riyal"],
+        ["North Macedonia", "Estonia", "Croatia", "Slovakia"],
+        ["Chisinau, Moldova", "Moscow, Russia", "Ljubljana, Slovenia", "Prague, Czechia"],
+        ["Gigi Buffon", "Manuel Neuer", "Lev Yashin", "Iker Casillas"],
+        ["Florida", "Massachusetts", "Maine", "New York"],
+        ["75%", "20%", "90%", "80%"],
+        ["Utqiagvik", "Blaine", "Bangor", "Minneapolis"],
+        ["4", "5", "7", "9"],
+        ["1", "3", "5", "7"],
+        ["2", "4", "6", "9"],
+        ["Spain", "UK", "Australia", "USA"],
+        ["Germany", "Jamaica", "Nigeria", "Mexico"],
+        ["Smosh", "Fred Figglehorn", "Jawed Karim", "Cocomelon"],
+        ["15", "20", "25", "30"],
+        ["Port Orford, OR", "Bodega Bay, CA", "Olympia, WA", "Carlsbad, CA"],
+        ["I-80", "I-90", "I-40", "I-5"]
+    ]
+
+    ' check variable
+    m.status = 0
+    m.aiStatus = 0 
+
+    ' square check
+    m.squareCheck = 0
+
+    ' mode variable
+    ' 1 for mixed, 2 for TorF, 3 for MCQ
+    m.mode = 1
+    m.aiMode = 1
+
+    ' confetti animation setup
+    m.confetti1 = m.top.findNode("confetti1")
+    m.confetti2 = m.top.findNode("confetti2")
+    m.confettiAnimation = m.top.findNode("confettiAnimation")
+    m.confettiAnimation.observeField("state", "onConfettiAnimationComplete")
+
+    ' setup correct answer label
+    m.correctTimer = m.top.findNode("correctAnsTimer")
+    m.correctLabel = m.top.findNode("correctAnsLabel")
+    m.correctLabel.maxLines = 2
+    m.correctLabel.wrap = true
+
+    ' setup hidden start button
+    m.hiddenStartButton = m.top.findNode("hiddenStartButton")
+    m.hiddenStartButton.observeField("buttonSelected", "onHiddenStartButtonPressed")
+
+    ' setup click screen timer
+    m.clickScreenTimer = m.top.findNode("clickScreenTimer")
+    m.clickScreenTimer.observeField("fire", "onClickScreenTimerFire")
+
+    ' width and height of the screen
+    deviceInfo = createObject("roDeviceInfo")
+    m.scrWidth = deviceInfo.getDisplaySize().w
+    m.scrHeight = deviceInfo.getDisplaySize().h
+
+    ' setup start screen
+    m.startScreen = m.top.findNode("startscreen")
+    m.startScreen.width = m.scrWidth
+    m.startScreen.height = m.scrHeight
+    m.startScreen.visible = true   ' <-- Add this line
+
+    ' setup click screen
+    m.clickScreen = m.top.findNode("clickScreen")
+    m.clickScreen.width = m.scrWidth
+    m.clickScreen.height = m.scrHeight
+
+    ' setup X Win Screen
+    m.xWinScreen = m.top.findNode("xWinScreen")
+    m.xWinScreen.width = m.scrWidth
+    m.xWinScreen.height = m.scrHeight
+    
+    ' setup O Win Screen
+    m.oWinScreen = m.top.findNode("oWinScreen")
+    m.oWinScreen.width = m.scrWidth
+    m.oWinScreen.height = m.scrHeight
+
+    ' initially show and focus the hidden button when on start screen
+    m.hiddenStartButton.visible = true
+    m.hiddenStartButton.setFocus(true)
+
+    ' question active
+    m.questionActive = false
+
+    ' background setup
+    m.background = m.top.findNode("background")
+    m.background.width = m.scrWidth
+    m.background.height= m.scrHeight
+
+    ' grid setup
+    m.grid = []
+    m.gridContainer = m.top.findNode("gridContainer")
+    gridSize = 0.25
+    numCol = 3
+    gridImg = "https://b-o09.github.io/host/grid.png"
+    createGrid(m.grid, m.gridContainer, gridSize, numCol, gridImg)
+
+    ' X setup
+    m.x = []
+    m.xContainer = m.top.findNode("xContainer")
+    xSize = 0.25
+    xImg = "pkg:/images/x.png"
+    createGrid(m.x, m.xContainer, xSize, numCol, xImg)
+    ' make X invisible
+    for i = 0 to m.x.Count() - 1
+        m.x[i].visible = false
+    end for
+
+    ' O setup
+    m.o = []
+    m.oContainer = m.top.findNode("oContainer")
+    oSize = 0.25
+    oImg = "pkg:/images/o.png"
+    createGrid(m.o, m.oContainer, oSize, numCol, oImg)
+    ' make O invisible
+    for i = 0 to m.o.Count() - 1
+        m.o[i].visible = false
+    end for
+
+    ' cursor setup
+    m.cursor = m.top.findNode("cursor")
+    m.cursor.width = m.grid[0].width
+    m.cursor.height = m.cursor.width
+    m.cursor.translation = m.grid[0].translation 
+    m.numRows = 3
+    m.numCols = 3
+    m.cursorRow = 0
+    m.cursorCol = 0
+    m.cursor.visible = false
+
+    ' a count variable to track the number of moves
+    m.count = 0    
+    
+    ' category label
+    m.categoryLabel = m.top.FindNode("categoryLabel")
+
+    ' turn label setup
+    m.turnLabel = m.top.findNode("turnLabel")
+    m.turnLabel.horizAlign = "center"
+    m.turnLabel.width = m.scrWidth
+    m.turnLabel.font.size = m.scrHeight * 0.08
+    m.turnLabel.translation = [0, m.scrHeight * 0.9] 
+
+    ' win label setup
+    m.winLabel = m.top.findNode("winLabel")
+    m.winLabel.horizAlign = "center"
+    m.winLabel.width = m.scrWidth
+    m.winLabel.font.size = m.scrHeight * 0.08
+
+    ' question label setup
+    m.questionLabel = m.top.FindNode("question")
+    m.questionLabel.font.size = m.scrHeight * 0.1
+    m.questionLabel.width = m.scrWidth  
+    m.questionLabel.horizAlign = "center"
+    m.questionLabel.wrap = true
+    m.questionLabel.maxLines = 3
+
+    ' replay label setup
+    m.replayLabel = m.top.findNode("replayLabel")
+    m.replayLabel.maxLines = 2
+    m.replayLabel.wrap = true
+
+    ' font setup
+    m.moodcake = CreateObject("roSGNode", "Font")
+    m.moodcake.uri = "pkg:/fonts/Moodcake.ttf"
+    m.moodcake.size = 50
+    m.winLabel.font = m.moodcake
+    m.turnLabel.font = m.moodcake
+
+    m.moodcake1 = CreateObject("roSGNode", "Font")
+    m.moodcake1.uri = "pkg:/fonts/Moodcake.ttf"
+    m.moodcake1.size = 70
+    m.questionLabel.font = m.moodcake1
+    m.questionLabel.width = m.scrWidth  
+    m.questionLabel.horizAlign = "center"
+    m.correctLabel.font = m.moodcake1
+    m.correctLabel.width = m.scrWidth  
+    m.correctLabel.horizAlign = "center"
+    m.replayLabel.font = m.moodcake1
+    m.replayLabel.width = m.scrWidth 
+    m.replayLabel.horizAlign = "center" 
+
+    m.dangrek = CreateObject("roSGNode", "Font")
+    m.dangrek.uri = "pkg:/fonts/Dangrek-Regular.ttf"
+    m.dangrek.size = 25
+    m.categoryLabel.font = m.dangrek
+    m.aiLabel = m.dangrek
+
+    ' button response setup
+    m.ButtonResponse = m.top.FindNode("response")
+    m.ButtonResponse.size = 60
+    m.ButtonResponse.observeField("buttonSelected", "onButtonSelected")
+
+    ' question background setup
+    m.questionBackground = m.top.FindNode("questionBackground")
+    m.questionBackground.width = m.scrWidth
+    m.questionBackground.height = m.scrHeight
+
+    ' audio setup
+    m.audio = createObject("roSGNode", "Audio")
+    m.audioContent = createObject("RoSGNode", "ContentNode")
+    m.audioContent.url = "https://audio.jukehost.co.uk/eAuwXAPByXT38nMsNOEyDShJW2nLjIrk"
+    m.audio.content = m.audioContent
+    m.audio.control = "play"
+    m.audio.loop = true
+
+    m.winaudio = createObject("roSGNode", "Audio")
+    m.winaudioContent = createObject("RoSGNode", "ContentNode")
+    m.winaudioContent.url = "https://audio.jukehost.co.uk/c6TJG5nVmQLWlGL0sjeFjbTRhSk9KWsk"
+    m.winaudio.content = m.winaudioContent
+    m.winaudio.control = "none"
+    
+    m.anotherwinaudio = createObject("roSGNode", "Audio")
+    m.anotherwinaudioContent = createObject("RoSGNode", "ContentNode")
+    m.anotherwinaudioContent.url = "https://audio.jukehost.co.uk/jOjnwHzIcYu7Plo2KnfzHwVBqaSHV5Sq"
+    m.anotherwinaudio.content = m.anotherwinaudioContent
+    m.anotherwinaudio.control = "none"
+
+    m.questionaudio = createObject("roSGNode", "Audio")
+    m.questionaudioContent = createObject("RoSGNode", "ContentNode")
+    m.questionaudioContent.url = "https://audio.jukehost.co.uk/6ymP8ODVlSdxuNXvCUIypxoMzYZUvjJg"
+    m.questionaudio.content = m.questionaudioContent
+    m.questionaudio.control = "none"
+
+    m.wrongaudio = createObject("roSGNode", "Audio")
+    m.wrongaudioContent = createObject("RoSGNode", "ContentNode")
+    m.wrongaudioContent.url = "https://audio.jukehost.co.uk/H588HhEwAED259prYV3fCzkgrtujmP1v"
+    m.wrongaudio.content = m.wrongaudioContent
+    m.wrongaudio.control = "none"    
+end sub
+
+sub OnButtonSelected()
+    m.questionBackground.visible = false
+    m.buttonresponse.setFocus(false)
+    m.buttonresponse.visible = false
+    m.questionlabel.visible = false
+    m.questionActive = false
+    triviaCorrect()
+    if m.winLabel.text = "X Wins!" or m.winLabel.text = "O Wins!" or m.winLabel.text = "It's a Tie!" then
+        m.cursor.visible = false
+        m.cursor.setFocus(false)
+        ' Set focus to the scene itself so it can handle back key
+        m.top.setFocus(true)
+    else
+        showGameElements()
+    end if
+end sub
+
+sub openGame()
+    buttonIndex = m.startButton.buttonSelected
+    if buttonIndex = 0
+        m.startButton.visible = false
+        m.startScreen.visible = false
+        m.background.visible = true
+        m.cursor.visible = true
+        m.cursor.setFocus(true)
+        m.gridArray.visible = true   
+    end if  
+end sub
+
+sub backtoMenu()
+    ' hide background
+    m.background.visible = false
+    m.questionBackground.visible = false
+
+    ' hide confetti
+    m.confetti1.visible = false
+    m.confetti2.visible = false
+    m.confettiAnimation.control = "stop"
+    m.xWinScreen.visible = false
+    m.oWinScreen.visible = false
+
+    ' hide strikethrough
+    m.strikethrough.visible = false
+    m.strikethroughAnimation.control = "stop"
+
+    'set focus to false and visibility of labels to false except for win cus people still playing the game
+    m.cursor.setFocus(false)
+    m.buttonResponse.setFocus(false)
+    m.cursor.visible = false
+    m.buttonResponse.visible = false
+    m.questionLabel.visible = false
+    m.winLabel.text = ""
+    m.turnabel.text = ""
+    m.categoryLabel.visible = true
+
+    ' no more questions
+    m.questionActive = false
+
+    ' reset game state
+    m.status = 0 ' only on start screen fast forward works
+    m.count = 0
+    m.cursorRow = 0
+    m.cursorCol = 0
+
+    'grid X or O's that may still be visible from previous game
+    m.gridContainer.visible = false
+    for i = 0 to m.grid.Count() - 1
+        m.grid[i].visible = false
+        m.x[i].visible = false
+        m.o[i].visible = false
+    end for
+
+    ' reset cursor position to top-left
+    m.cursor.translation = m.grid[0].translation
+
+    ' start the menu screen and cycle again
+    m.startScreen.visible = true
+    m.hiddenStartButton.visible = true
+    m.hiddenStartButton.setFocus(true)
+end sub
+
+' remote interaction setup
+function onKeyEvent(key as String, press as Boolean) as Boolean
+    handled = false
+    hoi = m.grid[0].width
+   
+    if press then
+        if key = "fastforward" and m.status = 0
+            m.mode = m.mode + 1
+            if m.mode > 3
+                m.mode = 1
+            end if
+            if m.mode = 1
+                m.categoryLabel.text = "Press the fastforward(>>) button to change category!                        Current Category: Mixed"
+            else if m.mode = 2
+                m.categoryLabel.text = "Press the fastforward(>>) button to change category!             Currently Category: True or False"
+            else if m.mode = 3
+                m.categoryLabel.text = "Press the fastforward(>>) button to change category!             Current Category: Multiple Choice"
+            handled = true
+            end if 
+        end if 
+
+        if key = "rewind" and m.status = 0 
+            m.aiMode += 1
+            if m.aiMode > 2
+                m.aiMode = 1
+                handled = true
+            end if
+        end if
+        
+        if key = "back"
+            if m.winaudio.control = "play" then
+                m.winaudio.control = "play"
+                m.audio.control = "play"
+            else if m.anotherwinaudio.control = "play" then
+                m.anotherwinaudio.control = "stop"
+                m.audio.control = "play"
+            else if m.questionaudio.control = "play" then
+                m.questionaudio.control = "stop"
+                m.audio.control = "play"
+            end if
+            backtoMenu()
+            m.correctLabel.visible = false
+            m.replayLabel.visible = false
+            m.correctTimer.control = "stop"
+            m.leftAnimal.visible = false
+            m.rightAnimal.visible = false
+            handled = true
+        
+        else if key = "replay"
+            if m.correctLabel.visible = true
+                m.questionBackground.visible = false
+                m.correctLabel.visible = false
+                m.replayLabel.visible = false
+                m.audio.control = "play"
+            end if
+
+        else if m.cursor.visible = true and m.questionActive = false and m.correctLabel.visible = false
+            if key = "up" and m.cursorRow > 0
+                m.cursorRow = m.cursorRow - 1
+                m.cursor.translation = [m.cursor.translation[0], m.cursor.translation[1] - hoi]
+                handled = true
+
+            else if key = "down" and m.cursorRow < m.numRows - 1
+                m.cursorRow = m.cursorRow + 1
+                m.cursor.translation = [m.cursor.translation[0], m.cursor.translation[1] + hoi]
+                handled = true
+
+            else if key = "right" and m.cursorCol < m.numCols - 1
+                m.cursorCol = m.cursorCol + 1
+                m.cursor.translation = [m.cursor.translation[0] + hoi, m.cursor.translation[1]]
+                handled = true
+
+            else if key = "left" and m.cursorCol > 0
+                m.cursorCol = m.cursorCol - 1
+                m.cursor.translation = [m.cursor.translation[0] - hoi, m.cursor.translation[1]]
+                handled = true
+                
+            else if key = "OK"
+                if dontClickOnTheSameSquare()
+                    randomNum = RND(2)
+                    if m.mode = 1 ' mixed mode
+                        if randomNum = 1
+                            TorF()
+                        else if randomNum = 2
+                            triviaQuestion()
+                        end if
+                    else if m.mode = 2 ' true or false mode
+                            TorF()
+                    else if m.mode = 3 ' multiple choice questions mode
+                            triviaQuestion()
+                    end if
+
+                    if m.questionActive = true
+                        m.buttonResponse.visible = true
+                        m.buttonResponse.setFocus(true)
+                    end if
+                end if
+                handled = true
+            end if
+        end if
+    end if
+    return handled
+end function
+
+' create a grid of posters
+sub createGrid(gridArray as Object, container as Object, gridSize as Float, numCol as Integer, imgUri as String)
+    ' create the posters
+    for i = 0 to (numCol * numCol) - 1
+        gridArray.Push(CreateObject("roSGNode", "Poster"))
+        gridArray[i].uri = imgUri
+        gridArray[i].height = gridSize * m.scrHeight
+        gridArray[i].width = gridArray[i].height
+        gridArray[i].visible = false
+        container.appendChild(gridArray[i])
+    end for
+    ' calculate the initial coordinates
+    xCoor = m.scrWidth/2 - 1.5 * gridArray[0].width
+    yCoor = m.scrHeight/2 - 1.5 * gridArray[0].height
+    ' place the posters
+    for i = 0 to gridArray.Count() - 1
+        gridArray[i].translation = [xCoor, yCoor]
+        if (i + 1) MOD numCol = 0 then
+            xCoor = m.scrWidth/2 - 1.5 * gridArray[0].width
+            yCoor = yCoor + gridArray[0].height
+        else
+            xCoor = xCoor + gridArray[0].width
+        end if
+    end for
+end sub
+
+' display X or O as appropriate
+sub displayXorY()
+    if m.aiMode = 1 and m.count MOD 2 = 0 then
+        m.turnLabel.text = "Capybara's turn"
+        for i = 0 to m.x.Count() - 1
+            if m.x[i].visible = false and m.o[i].visible = false then
+                if m.x[i].translation[0] = m.cursor.translation[0] and m.x[i].translation[1] = m.cursor.translation[1] then
+                    m.x[i].visible = true
+                    m.count = m.count + 1
+                end if
+            end if
+        end for
+        win()
+    else
+        m.turnLabel.text = "Chicken's turn"
+        for i = 0 to m.o.Count() - 1
+            if m.x[i].visible = false and m.o[i].visible = false then
+                if m.o[i].translation[0] = m.cursor.translation[0] and m.o[i].translation[1] = m.cursor.translation[1] then
+                    m.o[i].visible = true
+                    ' if m.winLabel.text = "X starts first" or m.winLabel.text = "Correct answer" then
+                    m.count = m.count + 1
+                end if
+            end if
+        end for
+        win()
+    end if
+
+    if m.aimode = 2 and m.count MOD 2 = 0 then
+        m.turnLabel.text = "Player's turn"
+        for i = 0 to m.x.Count() - 1
+            if m.x[i].visible = false and m.o[i].visible = false then
+                if m.x[i].translation[0] = m.cursor.translation[0] and m.x[i].translation[1] = m.cursor.translation[1] then
+                    m.x[i].visible = true
+                    m.count = m.count + 1
+                end if
+            end if
+        end for
+        win()
+    else
+        m.turnLabel.text = "ChatGPT's turn"
+        for i = 0 to m.o.Count() - 1
+            if m.x[i].visible = false and m.o[i].visible = false then
+                if m.o[i].translation[0] = m.cursor.translation[0] and m.o[i].translation[1] = m.cursor.translation[1] then
+                    m.o[i].visible = true
+                    ' if m.winLabel.text = "X starts first" or m.winLabel.text = "Correct answer" then
+                    m.count = m.count + 1
+                end if
+            end if
+        end for
+        win()
+    end if
+end sub
+
+sub helperX(pos1, pos2, pos3)
+    if m.x[pos1].visible and m.x[pos2].visible and m.x[pos3].visible then
+        m.winLabel.text = "X Wins!"
+        m.top.findNode("strikethrough").color = "0xf9a830"
+        m.audio.control = "stop"
+        m.anotherwinaudio.control = "play"
+        m.anotherwinaudio.loop = true
+        showStrikethrough(pos1, pos2, pos3)
+    end if 
+end sub 
+
+sub helperO(pos1, pos2, pos3)
+    if m.o[pos1].visible and m.o[pos2].visible and m.o[pos3].visible then
+        m.winLabel.text = "O Wins!"
+        m.top.findNode("strikethrough").color = "0xa6602a"
+        m.audio.control = "stop"
+        m.winaudio.control = "play"
+        m.winaudio.loop = true
+        showStrikethrough(pos1, pos2, pos3)
+    end if 
+end sub 
+
+sub helperTie()
+    actualMoves = 0
+    for i = 0 to 8
+        if m.x[i].visible = true or m.o[i].visible = true then
+            actualMoves = actualMoves + 1
+        end if
+    end for
+    
+    if actualMoves = 9 then
+        m.winLabel.text = "It's a Tie!"
+    end if
+end sub
+
+' Simplified vertical win check
+sub vertical()
+    for i = 0 to 2
+        if m.x[i].visible and m.x[i+3].visible and m.x[i+6].visible then
+            m.cursor.visible = false
+            m.top.setFocus(true)
+            helperX(i, i+3, i+6)
+            
+        else if m.o[i].visible and m.o[i+3].visible and m.o[i+6].visible then
+            m.cursor.visible = false
+            m.top.setFocus(true)
+            helperO(i, i+3, i+6)
+        end if
+    end for
+end sub
+
+'Simplified horizontal win check'
+sub horizontal()
+    for i = 0 to 6 step 3 
+        if m.x[i].visible and m.x[i+1].visible and m.x[i+2].visible then
+            m.cursor.visible = false
+            m.top.setFocus(true)
+            helperX(i, i+1, i+2)
+            
+        else if m.o[i].visible and m.o[i+1].visible and m.o[i+2].visible then
+            m.cursor.visible = false
+            m.top.setFocus(true)
+            helperO(i, i+1, i+2)
+        end if
+    end for
+end sub
+
+sub diagonal()
+    if (m.x[0].visible and m.x[4].visible and m.x[8].visible) then
+        m.cursor.visible = false
+        m.top.setFocus(true)
+        helperX(0, 4, 8)
+    else if (m.o[0].visible and m.o[4].visible and m.o[8].visible) then
+        m.cursor.visible = false
+        m.top.setFocus(true)
+        helperO(0, 4, 8)
+    else if m.x[2].visible and m.x[4].visible and m.x[6].visible then 
+        m.cursor.visible = false
+        m.top.setFocus(true)
+        helperX(2, 4, 6)
+    else if (m.o[2].visible and m.o[4].visible and m.o[6].visible) then
+        m.cursor.visible = false
+        m.top.setFocus(true)
+        helperO(2, 4, 6)
+    end if
+end sub
+
+' check win conditions and display the result
+sub win()
+    helperTie()
+    horizontal()
+    vertical()
+    diagonal()
+end sub 
+
+' function to make all game elements visible
+sub showGameElements()
+    m.background.visible = true
+    m.gridContainer.visible = true  ' Show the grid
+    m.xContainer.visible = true   
+    m.oContainer.visible = true     
+    for i = 0 to m.grid.Count() - 1
+        m.grid[i].visible = true
+    end for
+    m.cursor.visible = true
+    m.cursor.setFocus(true)
+    m.turnLabel.visible = true
+    m.correctLabel.visible = false
+    m.aiLabel = false
+    updateAnimalDisplay()
+end sub
+
+sub onHiddenStartButtonPressed()
+    m.status = 1
+    m.categoryLabel.visible ="false"
+    m.aiLabel = "false"
+
+    'clear question lists
+    m.TorFList.clear()
+    m.mcqList.clear()
+
+    ' hide start screen and show click screen
+    m.startScreen.visible = false
+    m.hiddenStartButton.visible = false
+    m.clickScreen.visible = true
+    
+    ' start timer for 0.5 seconds
+    m.clickScreenTimer.control = "start"
+end sub
+
+sub onClickScreenTimerFire()
+    ' hide click screen and show game elements after 0.5 seconds
+    m.clickScreen.visible = false
+    m.winLabel.text = "Chicken starts first" ' show after click screen
+    showGameElements()
+end sub
+
+'true or false
+sub TorF()
+    m.questionActive = true
+    m.audio.control = "stop"
+    m.questionaudio.control = "play"
+    m.questionaudio.loop = true
+
+    m.randomNum = RND(m.questionBankTorF.Count()-1)
+    randomindexTorF()
+    m.correctLabel.text = "Correct Answer: " + m.answerBankTorF[m.randomNum]
+    m.currentCorrectAnswer = m.answerBankTorF[m.randomNum] 'correct answer'
+    m.top.FindNode("global").text = m.randomNum.ToStr()
+    m.questionLabel.text = m.questionBankTorF[m.randomNum] 'question text'
+    m.questionBackground.visible = true
+    if m.questionBackground.visible = true
+        m.questionLabel.visible = true
+    end if
+    m.ButtonResponse.visible = true
+    m.ButtonResponse.setFocus(true)
+    m.ButtonResponse.buttons = ["True", "False"]  
+end sub
+
+sub triviaQuestion()
+    m.questionActive = true
+    m.cursor.setFocus(false)
+    
+    m.audio.control = "stop"
+    m.questionaudio.control = "play"
+    m.questionaudio.loop = true
+
+    m.randomInt = RND(m.questionBankMCQ.Count()-1)
+    randomindexmcq()
+    m.correctLabel.text = "Correct Answer: " + m.answerBankMCQ[m.randomInt]
+    m.currentCorrectAnswer = m.answerBankMCQ[m.randomInt] 'correct answer'
+    m.questionLabel.text = m.questionBankMCQ[m.randomInt] 'question text'
+    m.questionBackground.visible = true
+    if m.questionBackground.visible = true
+        m.questionLabel.visible = true
+    end if
+    m.ButtonResponse.visible = true
+    m.ButtonResponse.setFocus(true)
+    m.ButtonResponse.buttons = m.choicesBankMCQ[m.randomInt]
+end sub
+
+sub TriviaCorrect()
+    if m.aiMode = 1 
+
+    m.correctTimer.control = "stop"
+    m.correctLabel.visible = false
+    selectedIndex = m.ButtonResponse.buttonSelected
+    selectedContent = m.ButtonResponse.buttons[selectedIndex]
+
+    if selectedContent = m.currentCorrectAnswer then
+        m.winLabel.text="Correct answer!"
+        m.audio.control = "play"
+        m.questionaudio.control = "stop"
+        if m.count MOD 2 = 0 then
+            m.turnLabel.text = "Chicken's turn"
+            updateAnimalDisplay()
+        else 
+            m.turnLabel.text = "Capybara's turn"
+            updateAnimalDisplay()
+        end if
+        displayXorY()
+    else
+        correctTimer()
+        m.count = m.count + 1 ' fixed place marker turns; not + 2, has to be odd
+        m.winLabel.text = "Wrong answer! You lose your turn"
+        m.audio.control = "play"
+        m.questionaudio.control = "stop"
+        m.wrongaudio.control = "play"
+        if m.count MOD 2 = 0 then
+            m.turnLabel.text = "Chicken's turn"
+            updateAnimalDisplay()
+        else 
+            m.turnLabel.text = "Capybara's turn" ' changed X and O order
+            updateAnimalDisplay()
+        end if
+     end if 
+
+    if m.aiMode = 2 'Ai modes
+        m.correctTimer.control = "stop"
+    m.correctLabel.visible = false
+    selectedIndex = m.ButtonResponse.buttonSelected
+    selectedContent = m.ButtonResponse.buttons[selectedIndex]
+
+    if selectedContent = m.currentCorrectAnswer then
+        m.winLabel.text="Correct answer!"
+        m.audio.control = "play"
+        m.questionaudio.control = "stop"
+        if m.count MOD 2 = 0 then
+            m.turnLabel.text = "Player's turn"
+            updateAnimalDisplay()
+        else 
+            m.turnLabel.text = "AI's turn"
+            updateAnimalDisplay()
+        end if
+        displayXorY()
+    else
+        correctTimer()
+        m.count = m.count + 1 ' fixed place marker turns; not + 2, has to be odd
+        m.winLabel.text = "Wrong answer! You lose your turn"
+        m.audio.control = "play"
+        m.questionaudio.control = "stop"
+        if m.count MOD 2 = 0 then
+            m.turnLabel.text = "Player's turn"
+            updateAnimalDisplay()
+        else 
+            m.turnLabel.text = "AI's turn" ' changed X and O order
+            updateAnimalDisplay()
+        end if
+    end if 
+    end if
+    end if
+end sub 
+
+sub showWinWithConfetti()
+
+    ' hide game elements
+    m.cursor.visible = false
+    m.cursor.setFocus(false)
+    m.gridContainer.visible = false
+    m.background.visible = false
+    m.xContainer.visible = false
+    m.oContainer.visible = false
+    m.turnLabel.visible = false
+
+    ' show the appropriate win screen background
+    if m.winLabel.text = "X Wins!" then
+        m.xWinScreen.visible = true
+    else if m.winLabel.text = "O Wins!" then
+        m.oWinScreen.visible = true
+    end if
+    
+    ' show confetti and start animation
+    m.confetti1.visible = true
+    m.confetti2.visible = true
+    m.confettiAnimation.control = "start"
+
+
+    'hide strikethrough when showing confetti'
+    m.strikethrough.visible = false
+    ' show confetti and start animation
+    m.confetti1.visible = true
+    m.confetti2.visible = true
+    m.confettiAnimation.control = "start"
+    
+    ' set focus to scene for back button handling
+    m.top.setFocus(true)
+end sub
+
+sub updateAnimalDisplay()
+    m.leftAnimal = m.top.findNode("leftAnimal")
+    m.rightAnimal = m.top.findNode("rightAnimal")
+    
+    if m.turnLabel.text = "Chicken's turn"
+        m.leftAnimal.uri = "pkg:/images/x.png"  
+        m.rightAnimal.uri = "pkg:/images/sadCapy.png"  
+        m.leftAnimal.visible = true
+        m.rightAnimal.visible = true
+    else if m.turnLabel.text = "Capybara's turn"
+        m.rightAnimal.uri = "pkg:/images/o.png"
+        m.leftAnimal.uri = "pkg:/images/angryChicken.png"  
+        m.rightAnimal.visible = true
+        m.leftAnimal.visible = true
+    else
+        ' Hide both when game is over or not started
+        m.leftAnimal.visible = false
+        m.rightAnimal.visible = false
+    end if
+end sub
+
+sub correctTimer()
+    m.correctTimer.control = "start"
+    m.questionBackground.visible = true
+    m.correctTimer.ObserveField("fire", "onCorrectTimerFire")
+end sub
+
+sub onCorrectTimerFire()
+    m.correctLabel.visible = true
+    m.replayLabel.visible = true
+end sub
+
+sub randomindexmcq()
+    for i = 0 to m.mcqList.count() - 1
+        if m.mcqList[i] = m.randomInt
+            TriviaQuestion()
+            exit for
+        end if
+    end for
+    m.mcqList.addTail(m.randomInt)
+end sub
+
+sub randomindexTorF()
+    for i = 0 to m.TorFList.count() - 1
+        if m.TorFList[i] = m.randomNum
+            TorF()
+            exit for
+        end if
+    end for
+    m.TorFList.addTail(m.randomNum)
+end sub
+
+sub showStrikethrough(pos1 as Integer, pos2 as Integer, pos3 as Integer)
+    ' Position the strikethrough line based on winning positions
+    startPos = m.grid[pos1].translation
+    endPos = m.grid[pos3].translation
+    
+    ' Set line position and size
+    m.strikethrough.translation = [startPos[0], startPos[1] + m.grid[0].height/2]
+    m.strikethrough.width = 0  ' Start with width 0
+    m.strikethrough.height = 8  ' Line thickness
+    m.strikethrough.visible = true
+    
+    ' Calculate target width based on positions
+    if pos1 = 0 and pos3 = 8 then  ' Diagonal top-left to bottom-right
+    targetWidth = Sqr((endPos[0] - startPos[0])^2 + (endPos[1] - startPos[1])^2)
+        m.strikethrough.rotation = -46
+        m.strikethrough.translation = [startPos[0] + m.grid[0].width/2, startPos[1] + m.grid[0].height/2]
+    else if pos1 = 2 and pos3 = 6 then  ' Diagonal top-right to bottom-left
+        m.strikethrough.rotation = -40
+        targetWidth = Sqr((endPos[0] - startPos[0])^2 + (endPos[1] - startPos[1])^2)
+    else if (pos1 = 0 and pos3 = 2) or (pos1 = 3 and pos3 = 5) or (pos1 = 6 and pos3 = 8) then  ' Horizontal lines
+        targetWidth = (endPos[0] + m.grid[0].width) - startPos[0]
+        m.strikethrough.rotation = 0
+        m.strikethrough.translation = [startPos[0], startPos[1] + m.grid[0].height/2]
+    else if (pos1 = 0 and pos3 = 6) or (pos1 = 1 and pos3 = 7) or (pos1 = 2 and pos3 = 8) then  ' Vertical lines
+        targetWidth = (endPos[1] + m.grid[0].height) - startPos[1]
+        m.strikethrough.rotation = 75
+        
+        ' For vertical lines: position at center of column, middle of total height
+        m.strikethrough.translation = [startPos[0], startPos[1] + m.grid[0].height/2 + targetWidth/2]
+    end if
+    
+    ' Set up the animation keyValues properly 
+    m.strikethroughWidthInterp = m.strikethroughAnimation.findNode("strikethroughWidthInterp")
+    if m.strikethroughWidthInterp <> invalid then
+        m.strikethroughWidthInterp.keyValue = [0.0, targetWidth]
+    end if
+    
+    ' Animate the strikethrough
+    m.strikethroughAnimation.duration = 5
+    m.strikethroughAnimation.control = "start"
+end sub
+
+sub onStrikethroughComplete()
+    if m.strikethroughAnimation.state = "stopped" then
+        ' Start confetti after strikethrough completes
+        showWinWithConfetti()
+    end if
+end sub
+
+function dontClickOnTheSameSquare()
+
+for i = 0 to m.grid.Count() - 1
+        'cursor is on the same square as grid[i]
+        'check if x or o is already visible on that square
+        if m.grid[i].translation[0] = m.cursor.translation[0] and m.grid[i].translation[1] = m.cursor.translation[1] then
+            if m.x[i].visible or m.o[i].visible then
+                ?"poopandfart"
+                return false
+            else 
+                return true
+            end if
+        end if
+    end for
+    return false
+end function

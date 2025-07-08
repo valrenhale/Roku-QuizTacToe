@@ -6,7 +6,7 @@ sub init()
     ? "[xWin_scene] init"
 
     ? "[oWin_scene] init"
-    'q bank and a bank setup for TorF'
+    ' q bank and a bank setup for TorF
     m.TorFList = CreateObject("roList")
     m.questionBankTorF = CreateObject("roList")
     m.questionBankTorF.AddTail("The sky is blue because of the ocean's reflection")
@@ -29,7 +29,21 @@ sub init()
     m.questionBankTorF.AddTail("The Dutch are the tallest people in the world")
     m.questionBankTorF.AddTail("Humans and Bananas share 50% of their DNA")
     m.questionBankTorF.AddTail("Moss grows on the north side of a tree")
-
+    m.questionBankTorF.AddTail("Friends used to be called “Insomnia Cafe”")
+    m.questionBankTorF.AddTail("The Office is set in Detroit, MI")
+    m.questionBankTorF.AddTail("Thriller by MJ is the highest selling album ever")
+    m.questionBankTorF.AddTail("Justin Bieber is American")
+    m.questionBankTorF.AddTail("Jason Mraz supplies avocados to Chipotle")
+    m.questionBankTorF.AddTail("Bruno Mars is his real name")
+    m.questionBankTorF.AddTail("Barack Obama is the only president born off the mainland")
+    m.questionBankTorF.AddTail("The US has four of the top 5 air forces")
+    m.questionBankTorF.AddTail("Russia has the most time zones")
+    m.questionBankTorF.AddTail("The US has the most immigrants")
+    m.questionBankTorF.AddTail("Only about 20 countries play American football")
+    m.questionBankTorF.AddTail("The English called it soccer first")
+    m.questionBankTorF.AddTail("English is the most spoken language in the world")
+    m.questionBankTorF.AddTail("The US is undefeated against England in soccer")
+    m.questionBankTorF.AddTail("Haiti was an American colony for 20 years in the 20th century")
 
     m.answerBankTorF = CreateObject("roList")
     m.answerBankTorF.AddTail("False")
@@ -52,9 +66,24 @@ sub init()
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("False")
-
-
-    'q bank and a bank setup for MCQ'
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+  
+    ' q bank and a bank setup for MCQ
     m.mcqList = createObject("roList")
     m.questionBankMCQ = CreateObject("roList")
     m.questionBankMCQ.AddTail("Where was Michael B Jordan born")
@@ -123,11 +152,12 @@ sub init()
         ["Panama", "Philippines", "Puerto Rico", "Canada"],
     ]
 
-    'check variable
+    ' check variable
     m.status = 0
 
-    'mode variable
-    m.mode = 1' 1 for mixed, 2 for TorF, 3 for MCQ
+    ' mode variable
+    ' 1 for mixed, 2 for TorF, 3 for MCQ
+    m.mode = 1 
 
     ' confetti animation setup
     m.confetti1 = m.top.findNode("confetti1")
@@ -158,7 +188,7 @@ sub init()
     m.startScreen = m.top.findNode("startscreen")
     m.startScreen.width = m.scrWidth
     m.startScreen.height = m.scrHeight
-    m.startScreen.visible = true   ' <-- Add this line
+    m.startScreen.visible = true  
 
     ' setup click screen
     m.clickScreen = m.top.findNode("clickScreen")
@@ -179,7 +209,7 @@ sub init()
     m.hiddenStartButton.visible = true
     m.hiddenStartButton.setFocus(true)
 
-    ' question active'
+    ' question active
     m.questionActive = false
 
     ' background setup
@@ -195,24 +225,24 @@ sub init()
     gridImg = "https://b-o09.github.io/host/grid.png"
     createGrid(m.grid, m.gridContainer, gridSize, numCol, gridImg)
 
-    ' x setup
+    ' X setup
     m.x = []
     m.xContainer = m.top.findNode("xContainer")
     xSize = 0.25
     xImg = "pkg:/images/x.png"
     createGrid(m.x, m.xContainer, xSize, numCol, xImg)
-    ' make x invisible
+    ' make X invisible
     for i = 0 to m.x.Count() - 1
         m.x[i].visible = false
     end for
 
-    ' o setup
+    ' O setup
     m.o = []
     m.oContainer = m.top.findNode("oContainer")
     oSize = 0.25
     oImg = "pkg:/images/o.png"
     createGrid(m.o, m.oContainer, oSize, numCol, oImg)
-    ' make o invisible
+    ' make O invisible
     for i = 0 to m.o.Count() - 1
         m.o[i].visible = false
     end for
@@ -231,10 +261,10 @@ sub init()
     ' a count variable to track the number of moves
     m.count = 0    
     
-    'category label'
+    ' category label
     m.categoryLabel = m.top.FindNode("categoryLabel")
 
-    ' turn label setup'
+    ' turn label setup
     m.turnLabel = m.top.findNode("turnLabel")
     m.turnLabel.horizAlign = "center"
     m.turnLabel.width = m.scrWidth
@@ -247,7 +277,7 @@ sub init()
     m.winLabel.width = m.scrWidth
     m.winLabel.font.size = m.scrHeight * 0.08
 
-    ' question label setup'
+    ' question label setup
     m.questionLabel = m.top.FindNode("question")
     m.questionLabel.font.size = m.scrHeight * 0.1
     m.questionLabel.width = m.scrWidth  
@@ -255,7 +285,7 @@ sub init()
     m.questionLabel.wrap = true
     m.questionLabel.maxLines = 3
 
-    'replay label setup
+    ' replay label setup
     m.replayLabel = m.top.findNode("replayLabel")
     m.replayLabel.maxLines = 2
     m.replayLabel.wrap = true
@@ -285,12 +315,12 @@ sub init()
     m.dangrek.size = 25
     m.categoryLabel.font = m.dangrek
 
-    ' button response setup'
+    ' button response setup
     m.ButtonResponse = m.top.FindNode("response")
     m.ButtonResponse.size = 60
     m.ButtonResponse.observeField("buttonSelected", "onButtonSelected")
 
-    ' question background setup'
+    ' question background setup
     m.questionBackground = m.top.FindNode("questionBackground")
     m.questionBackground.width = m.scrWidth
     m.questionBackground.height = m.scrHeight
@@ -320,7 +350,12 @@ sub init()
     m.questionaudioContent.url = "https://audio.jukehost.co.uk/6ymP8ODVlSdxuNXvCUIypxoMzYZUvjJg"
     m.questionaudio.content = m.questionaudioContent
     m.questionaudio.control = "none"
-    
+
+    m.wrongaudio = createObject("roSGNode", "Audio")
+    m.wrongaudioContent = createObject("RoSGNode", "ContentNode")
+    m.wrongaudioContent.url = "https://audio.jukehost.co.uk/H588HhEwAED259prYV3fCzkgrtujmP1v"
+    m.wrongaudio.content = m.wrongaudioContent
+    m.wrongaudio.control = "none"
 end sub
 
 sub OnButtonSelected()
@@ -349,24 +384,22 @@ sub openGame()
         m.cursor.visible = true
         m.cursor.setFocus(true)
         m.gridArray.visible = true
-        
     end if  
 end sub
 
 sub backtoMenu()
-    'hide background'
+    ' hide background
     m.background.visible = false
     m.questionBackground.visible = false
 
-    'hide confetti'
+    ' hide confetti
     m.confetti1.visible = false
     m.confetti2.visible = false
     m.confettiAnimation.control = "stop"
     m.xWinScreen.visible = false
     m.oWinScreen.visible = false
 
-    
-    'set focus to false and visibility of labels to false except for win cus people still playing the game
+    ' set focus to false and visibility of labels to false except for win cus people still playing the game
     m.cursor.setFocus(false)
     m.buttonResponse.setFocus(false)
     m.cursor.visible = false
@@ -376,16 +409,16 @@ sub backtoMenu()
     m.turnLabel.text = ""
     m.categoryLabel.visible = true
 
-    'no more questions haha you get the joke
+    ' no more questions 
     m.questionActive = false
 
-    'reset game state
+    ' reset game state
     m.status = 0 ' only on start screen fast forward works
     m.count = 0
     m.cursorRow = 0
     m.cursorCol = 0
 
-    'grid stuff and x or o's that may still be visible from previous game
+    ' grid and X or O's that may still be visible from previous game
     m.gridContainer.visible = false
     for i = 0 to m.grid.Count() - 1
         m.grid[i].visible = false
@@ -393,14 +426,13 @@ sub backtoMenu()
         m.o[i].visible = false
     end for
 
-    'reset cursor position to top-left
+    ' reset cursor position to top-left
     m.cursor.translation = m.grid[0].translation
 
-    'onto real stuff now we start the menu screen and its a cycle again
+    ' onto start the menu screen and cycle again
     m.startScreen.visible = true
     m.hiddenStartButton.visible = true
     m.hiddenStartButton.setFocus(true)
-    
 end sub
 
 ' remote interaction setup
@@ -448,6 +480,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                 m.questionBackground.visible = false
                 m.correctLabel.visible = false
                 m.replayLabel.visible = false
+                m.audio.control = "play"
             end if
 
         else if m.cursor.visible = true and m.questionActive = false and m.correctLabel.visible = false
@@ -523,7 +556,7 @@ sub createGrid(gridArray as Object, container as Object, gridSize as Float, numC
     end for
 end sub
 
-' display x or y as appropriate
+' display X or O as appropriate
 sub displayXorY()
     if m.count MOD 2 = 0 then
         m.turnlabel.text = "Capybara's turn"
@@ -542,7 +575,6 @@ sub displayXorY()
             if m.x[i].visible = false and m.o[i].visible = false then
                 if m.o[i].translation[0] = m.cursor.translation[0] and m.o[i].translation[1] = m.cursor.translation[1] then
                     m.o[i].visible = true
-                    ' if m.winLabel.text = "X starts first" or m.winLabel.text = "Correct answer" then
                     m.count = m.count + 1
                 end if
             end if
@@ -600,7 +632,7 @@ sub vertical()
     end for
 end sub
 
-'Simplified horizontal win check'
+' Simplified horizontal win check
 sub horizontal()
     for i = 0 to 6 step 3 
         if m.x[i].visible and m.x[i+1].visible and m.x[i+2].visible then
@@ -664,7 +696,7 @@ sub onHiddenStartButtonPressed()
     m.status = 1
     m.categoryLabel.visible ="false"
 
-    'clear question lists
+    ' clear question lists
     m.TorFList.clear()
     m.mcqList.clear()
 
@@ -684,7 +716,7 @@ sub onClickScreenTimerFire()
     showGameElements()
 end sub
 
-'true or false
+' true or false
 sub TorF()
     m.questionActive = true
     m.audio.control = "stop"
@@ -694,9 +726,9 @@ sub TorF()
     m.randomNum = RND(m.questionBankTorF.Count()-1)
     randomindexTorF()
     m.correctLabel.text = "Correct Answer: " + m.answerBankTorF[m.randomNum]
-    m.currentCorrectAnswer = m.answerBankTorF[m.randomNum] 'correct answer'
+    m.currentCorrectAnswer = m.answerBankTorF[m.randomNum] ' correct answer
     m.top.FindNode("global").text = m.randomNum.ToStr()
-    m.questionLabel.text = m.questionBankTorF[m.randomNum] 'question text'
+    m.questionLabel.text = m.questionBankTorF[m.randomNum] ' question text
     m.questionBackground.visible = true
     if m.questionBackground.visible = true
         m.questionLabel.visible = true
@@ -717,8 +749,8 @@ sub triviaQuestion()
     m.randomInt = RND(m.questionBankMCQ.Count()-1)
     randomindexmcq()
     m.correctLabel.text = "Correct Answer: " + m.answerBankMCQ[m.randomInt]
-    m.currentCorrectAnswer = m.answerBankMCQ[m.randomInt] 'correct answer'
-    m.questionLabel.text = m.questionBankMCQ[m.randomInt] 'question text'
+    m.currentCorrectAnswer = m.answerBankMCQ[m.randomInt] ' correct answer
+    m.questionLabel.text = m.questionBankMCQ[m.randomInt] 'question text
     m.questionBackground.visible = true
     if m.questionBackground.visible = true
     m.questionLabel.visible = true
@@ -750,8 +782,9 @@ sub TriviaCorrect()
         correctTimer()
         m.count = m.count + 1 ' fixed place marker turns; not + 2, has to be odd
         m.winLabel.text = "Wrong answer! You lose your turn"
-        m.audio.control = "play"
+        m.audio.control = "stop"
         m.questionaudio.control = "stop"
+        m.wrongaudio.control = "play"
         if m.count MOD 2 = 0 then
             m.turnlabel.text = "Chicken's turn"
             updateAnimalDisplay()
@@ -795,13 +828,13 @@ sub updateAnimalDisplay()
     m.rightAnimal = m.top.findNode("rightAnimal")
     
     if m.turnLabel.text = "Chicken's turn"
-        m.leftAnimal.uri = "pkg:/images/x.png"  ' or whatever X image you want
-        m.rightAnimal.uri = "pkg:/images/sadCapy.png"  ' or whatever O image you want
+        m.leftAnimal.uri = "pkg:/images/x.png"  
+        m.rightAnimal.uri = "pkg:/images/sadCapy.png"  
         m.leftAnimal.visible = true
         m.rightAnimal.visible = true
     else if m.turnLabel.text = "Capybara's turn"
         m.rightAnimal.uri = "pkg:/images/o.png"
-        m.leftAnimal.uri = "pkg:/images/angryChicken.png"  ' or whatever O image you want
+        m.leftAnimal.uri = "pkg:/images/angryChicken.png"  
         m.rightAnimal.visible = true
         m.leftAnimal.visible = true
     else

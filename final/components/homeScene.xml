@@ -83,7 +83,7 @@
       font = "font:LargeBoldSystemFont"
     />
 
-    <poster
+    <Poster
       id = "leftAnimal"
       translation = "[70,350]"
       visible = "false"
@@ -91,7 +91,7 @@
       width="300"
     />
 
-    <poster
+    <Poster
       id = "rightAnimal"
       translation = "[950,350]"
       visible = "false"
@@ -141,12 +141,14 @@
       visible = "false"
     />
 
-    <Poster id="confetti1"
+    <Poster 
+      id="confetti1"
       uri="https://b-o09.github.io/host/confetti.png"
       visible="false"
     />
-    
-    <Poster id="confetti2"
+
+    <Poster 
+      id="confetti2"
       uri="https://b-o09.github.io/host/confetti.png"
       visible="false"
     />

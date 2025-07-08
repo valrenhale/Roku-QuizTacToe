@@ -59,4 +59,13 @@
 *WEEK 4 - 7/7 to 7/11 of 2025*
 
   DAY 14 - 7/7 MONDAY (AP SCORES OUT)
-  Tony working on randomizing question functionality with Sami; Sofia and Kathy working on showing correct answer when user gets question wrong
+  Tony working on randomizing question functionality with Sami; Sofia and Kathy working on showing correct answer when user gets question wrong; Sam working on 
+  adding new questions to app; finished all --> app functionality done
+  Future tasks:
+  1) bug with cursor when already won square
+  2) strikethrough
+
+  DAY 15 - 7/8 TUESDAY
+  Tony fixing bug number 2 making strikethroughs for winning combos; Kathy and Sofia cannot fix bug number 1 (really hard to) because when click box to put down 
+  x/o leads to the question; cannot disable click since since not indexed on second time (goes by whether x/o has been put down in a box); if disable will disable 
+  for all (so cursor cannot be disabled and set focus to false) :((

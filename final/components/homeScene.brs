@@ -44,6 +44,21 @@ sub init()
     m.questionBankTorF.AddTail("English is the most spoken language in the world")
     m.questionBankTorF.AddTail("The US is undefeated against England in soccer")
     m.questionBankTorF.AddTail("Haiti was an American colony for 20 years in the 20th century")
+    m.questionBankTorF.AddTail("Luxembourg is a city state")
+    m.questionBankTorF.AddTail("French Indochina was only Vietnam")
+    m.questionBankTorF.AddTail("The US follows a ranked size cities model")
+    m.questionBankTorF.AddTail("Apple is headquartered in San Francisco")
+    m.questionBankTorF.AddTail("McDonald’s sells pizza in some locations")
+    m.questionBankTorF.AddTail("America runs on Starbucks")
+    m.questionBankTorF.AddTail("Taco Bell has locations in Mexico")
+    m.questionBankTorF.AddTail("You can be a foreign-born and be a American Senator")
+    m.questionBankTorF.AddTail("There is a current NFL player from San Jose")
+    m.questionBankTorF.AddTail("Truman invented the interstate highway system")
+    m.questionBankTorF.AddTail("Musk owns 6 companies in some capacity")
+    m.questionBankTorF.AddTail("The US has solely two political parties")
+    m.questionBankTorF.AddTail("The first AP test was administered in 1952")
+    m.questionBankTorF.AddTail("College Board considers themselves a non-profit")
+    m.questionBankTorF.AddTail("The Bay has 44 Fortune 500 companies")
 
     m.answerBankTorF = CreateObject("roList")
     m.answerBankTorF.AddTail("False")
@@ -75,11 +90,25 @@ sub init()
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
     m.answerBankTorF.AddTail("False")
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("False")
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
+    m.answerBankTorF.AddTail("False")
+    m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("True")
     m.answerBankTorF.AddTail("True")
   
@@ -106,28 +135,88 @@ sub init()
     m.questionBankMCQ.AddTail("Who was the man who led 6 countries to independence from Spain?")
     m.questionBankMCQ.AddTail("Which was never a political party in the US?")
     m.questionBankMCQ.AddTail("Which of these countries got independence from the US?")
+    m.questionBankMCQ.AddTail("Where is the late Liverpool winger Diogo Jota from?")
+    m.questionBankMCQ.AddTail("Which two NBA legends were born in the same hospital?")
+    m.questionBankMCQ.AddTail("Find the odd one out.")
+    m.questionBankMCQ.AddTail("Where is Nasi Goreng from?")
+    m.questionBankMCQ.AddTail("What is the most viewed commercial music video on YT?")
+    m.questionBankMCQ.AddTail("Which of these countries does not have birthright citizenship?")
+    m.questionBankMCQ.AddTail("What is the strongest separatist movement in the world?")
+    m.questionBankMCQ.AddTail("Which of these is an ethnicity (Hint: be very technical)?")
+    m.questionBankMCQ.AddTail("What country is Ronaldo from? (Hint: be careful)")
+    m.questionBankMCQ.AddTail("Which of these is a position in only one football?")
+    m.questionBankMCQ.AddTail("Find the odd one out.")
+    m.questionBankMCQ.AddTail("What race has the majority in California?")
+    m.questionBankMCQ.AddTail("Which of these countries has a primate city?")
+    m.questionBankMCQ.AddTail("What country has the lowest population density?")
+    m.questionBankMCQ.AddTail("What is the strongest currency in the world?")
+    m.questionBankMCQ.AddTail("Who is the newest EU member?")
+    m.questionBankMCQ.AddTail("What city is NBA star Luka Doncic from?")
+    m.questionBankMCQ.AddTail("Which soccer GK is the “sweeper keeper”?")
+    m.questionBankMCQ.AddTail("What is the closest US state to Africa?")
+    m.questionBankMCQ.AddTail("What percent of Canadians live south of Minneapolis?")
+    m.questionBankMCQ.AddTail("What is the northernmost city in the US?")
+    m.questionBankMCQ.AddTail("How many time zones does the US have?")
+    m.questionBankMCQ.AddTail("How many hours behind SF is the most behind place in the world?:")
+    m.questionBankMCQ.AddTail("How many presidents have been assassinated in office?")
+    m.questionBankMCQ.AddTail("What country has the most tennis grand slams (both genders)?")
+    m.questionBankMCQ.AddTail("What country has sent the most players to the NFL (besides the US and Canada)?")
+    m.questionBankMCQ.AddTail("What YT channel was the first to reach 1 million?")
+    m.questionBankMCQ.AddTail("What is the record for AP tests taken by a singular student?")
+    m.questionBankMCQ.AddTail("What is the most western city on the mainland US?")
+    m.questionBankMCQ.AddTail("What is the longest interstate highway in the US?")
 
     m.answerBankMCQ = createObject("roList")
-     m.answerBankMCQ.AddTail("Los Angeles, CA")
-     m.answerBankMCQ.AddTail("Ottawa")
-     m.answerBankMCQ.AddTail("Seattle, WA")
-     m.answerBankMCQ.AddTail("Domino's")
-     m.answerBankMCQ.AddTail("Au")
-     m.answerBankMCQ.AddTail("Netherlands")
-     m.answerBankMCQ.AddTail("Barbados")
-     m.answerBankMCQ.AddTail("German")
-     m.answerBankMCQ.AddTail("29")
-     m.answerBankMCQ.AddTail("50")
-     m.answerBankMCQ.AddTail("Yen")
-     m.answerBankMCQ.AddTail("Mendel")
-     m.answerBankMCQ.AddTail("Kailash Satyarthi")
-     m.answerBankMCQ.AddTail("Diego Maradona")
-     m.answerBankMCQ.AddTail("Caspian Sea")
-     m.answerBankMCQ.AddTail("Bogota")
-     m.answerBankMCQ.AddTail("Ryan Reynolds")
-     m.answerBankMCQ.AddTail("Simon Bolivar")
-     m.answerBankMCQ.AddTail("Native Independence")
-     m.answerBankMCQ.AddTail("Philippines")
+    m.answerBankMCQ.AddTail("Los Angeles, CA")
+    m.answerBankMCQ.AddTail("Ottawa")
+    m.answerBankMCQ.AddTail("Seattle, WA")
+    m.answerBankMCQ.AddTail("Domino's")
+    m.answerBankMCQ.AddTail("Au")
+    m.answerBankMCQ.AddTail("Netherlands")
+    m.answerBankMCQ.AddTail("Barbados")
+    m.answerBankMCQ.AddTail("German")
+    m.answerBankMCQ.AddTail("29")
+    m.answerBankMCQ.AddTail("50")
+    m.answerBankMCQ.AddTail("Yen")
+    m.answerBankMCQ.AddTail("Mendel")
+    m.answerBankMCQ.AddTail("Kailash Satyarthi")
+    m.answerBankMCQ.AddTail("Diego Maradona")
+    m.answerBankMCQ.AddTail("Caspian Sea")
+    m.answerBankMCQ.AddTail("Bogota")
+    m.answerBankMCQ.AddTail("Ryan Reynolds")
+    m.answerBankMCQ.AddTail("Simon Bolivar")
+    m.answerBankMCQ.AddTail("Native Independence")
+    m.answerBankMCQ.AddTail("Philippines")
+    m.answerBankMCQ.AddTail("Portugal")
+    m.answerBankMCQ.AddTail("Steph and Lebron")
+    m.answerBankMCQ.AddTail("Christian McCaffrey")
+    m.answerBankMCQ.AddTail("Indonesia")
+    m.answerBankMCQ.AddTail("Despacito")
+    m.answerBankMCQ.AddTail("South Africa")
+    m.answerBankMCQ.AddTail("Catalonia")
+    m.answerBankMCQ.AddTail("German")
+    m.answerBankMCQ.AddTail("Brazil")
+    m.answerBankMCQ.AddTail("QB")
+    m.answerBankMCQ.AddTail("Oklahoma City, OK")
+    m.answerBankMCQ.AddTail("Latinos")
+    m.answerBankMCQ.AddTail("Mexico")
+    m.answerBankMCQ.AddTail("Mongolia")
+    m.answerBankMCQ.AddTail("Kuwaiti Dinar")
+    m.answerBankMCQ.AddTail("Croatia")
+    m.answerBankMCQ.AddTail("Ljubljana, Slovenia")
+    m.answerBankMCQ.AddTail("Manuel Neuer")
+    m.answerBankMCQ.AddTail("Maine")
+    m.answerBankMCQ.AddTail("90%")
+    m.answerBankMCQ.AddTail("Utkiagvik")
+    m.answerBankMCQ.AddTail("9")
+    m.answerBankMCQ.AddTail("5")
+    m.answerBankMCQ.AddTail("6")
+    m.answerBankMCQ.AddTail("USA")
+    m.answerBankMCQ.AddTail("Germany")
+    m.answerBankMCQ.AddTail("Fred Figglehorn")
+    m.answerBankMCQ.AddTail("30")
+    m.answerBankMCQ.AddTail("Port Orford, OR")
+    m.answerBankMCQ.AddTail("I-90")
 
     m.choicesBankMCQ = [
         ["New York, NY", "Denver, CO", "Los Angeles, CA", "New Orleans, LA"],
@@ -145,11 +234,41 @@ sub init()
         ["Barack Obama", "Daron Acemoglu", "Kailash Satyarthi", "Demis Hassabis"],
         ["Pele", "Diego Maradona", "Eusebio", "Lionel Messi"],
         ["Red Sea", "Lake Huron", "Caspian Sea", "Lake Superior"]
-        ["Mexico City" , "Bogota" , "Detroit" , "Tegucigalpa"],
-        ["Paul Rudd", "Taylor Swift", "Lebron James", "Ryan Reynolds"],
-        ["Hugo Chavez", "Simon Bolivar", "Francisco Franco", "Edgar Renteria"],
-        ["Know Nothing", "Federalists", "Native Independence", "Democrat-Republicans"],
-        ["Panama", "Philippines", "Puerto Rico", "Canada"],
+        ["Mexico City", "Bogota", "Detroit", "Tegucigalpa"],
+        ["Paul Rudd", "Taylor Swift", "LeBron James", "Ryan Reynolds"],
+        ["Francisco Franco", "Dani Carvajal", "Simon Bolivar", "Edgar Renteria"],
+        ["Know-Nothing", "Federalists", "Native Independence", "Democrat-Republicans"],
+        ["Panama", "Philippines", "Canada", "Puerto RIco"],
+        ["Spain", "England", "Portugal", "France"],
+        ["Steph and Lebron", "KD and Lebron", "MJ and Kobe", "MJ and LeBron"],
+        ["Tim Weah", "Davinson Sanchez", "Christian McCaffrey", "Marcus Rashford"],
+        ["Indonesia", "Vietnam", "Laos", "Cambodia"],
+        ["Despacito", "Shape of You", "Blank Space", "Love Story"],
+        ["USA", "Argentina", "Chad", "South Africa"],
+        ["Hawaii", "Basque", "Catalonia", "Scotland"],
+        ["American", "Canadian", "Argentinian", "German"],
+        ["Portugal", "Brazil", "Germany", "France"],
+        ["CB", "LB", "RB", "QB"],
+        ["Gainesville, FL", "West Lafayette, IN", "Ithaca, NY", "Oklahoma City, OK"],
+        ["Latinos", "Asians", "White", "Black"],
+        ["USA", "Germany", "Mexico", "UK"],
+        ["Mongolia", "Russia", "Canada", "Brazil"],
+        ["US Dollar", "UK pound", "Kuwaiti Dinar", "Saudi Riyal"],
+        ["North Macedonia", "Estonia", "Croatia", "Slovakia"],
+        ["Chisinau, Moldova", "Moscow, Russia", "Ljubljana, Slovenia", "Prague, Czechia"],
+        ["Gigi Buffon", "Manuel Neuer", "Lev Yashin", "Iker Casillas"],
+        ["Florida", "Massachusetts", "Maine", "New York"],
+        ["75%", "20%", "90%", "80%"],
+        ["Utqiagvik", "Blaine", "Bangor", "Minneapolis"],
+        ["4", "5", "7", "9"],
+        ["1", "3", "5", "7"],
+        ["2", "4", "6", "9"],
+        ["Spain", "UK", "Australia", "USA"],
+        ["Germany", "Jamaica", "Nigeria", "Mexico"],
+        ["Smosh", "Fred Figglehorn", "Jawed Karim", "Cocomelon"],
+        ["15", "20", "25", "30"],
+        ["Port Orford, OR", "Bodega Bay, CA", "Olympia, WA", "Carlsbad, CA"],
+        ["I-80", "I-90", "I-40", "I-5"]
     ]
 
     ' check variable
@@ -804,7 +923,6 @@ sub showWinWithConfetti()
     m.background.visible = false
     m.xContainer.visible = false
     m.oContainer.visible = false
-    
     m.turnLabel.visible = false
     
     ' show the appropriate win screen background

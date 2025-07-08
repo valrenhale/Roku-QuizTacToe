@@ -75,3 +75,5 @@
   Tony fixing bug number 2 making strikethroughs for winning combos; Kathy and Sofia cannot fix bug number 1 (really hard to) because when click box to put down 
   x/o leads to the question; cannot disable click since since not indexed on second time (goes by whether x/o has been put down in a box); if disable will disable 
   for all (so cursor cannot be disabled and set focus to false) :((
+  UPDATE: Tony fixed bug number 1; also fixed bug number 2 with mentor Khoa (diagonals); Bao and mentor Sami made AI player mode; Sofia and Kathy fixed wrong audio
+  when player loses turn; Sam added new questions

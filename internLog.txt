@@ -79,3 +79,7 @@ PROGRESS REPORT
   for all (so cursor cannot be disabled and set focus to false) :((
   UPDATE: Tony fixed bug number 1; also fixed bug number 2 with mentor Khoa (diagonals); Bao and mentor Sami made AI player mode; Sofia and Kathy fixed wrong audio
   when player loses turn; Sam added new questions
+
+  DAY 18 - 7/9 WEDNESDAY
+  Kathy, Tony, and Khoa coded strikethrough
+  On new combined file of bug fixes and base, created AI (Bao, etc)

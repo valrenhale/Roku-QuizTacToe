@@ -82,4 +82,5 @@ PROGRESS REPORT
 
   DAY 18 - 7/9 WEDNESDAY
   Kathy, Tony, and Khoa coded strikethrough
-  On new combined file of bug fixes and base, created AI (Bao, etc)
+  On new combined file of bug fixes and base, created AI (Bao, Sofia, Sami, Sam)
+  Need to fix final bugs and final touches for aesthetics ~

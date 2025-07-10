@@ -84,3 +84,6 @@ PROGRESS REPORT
   Kathy, Tony, and Khoa coded strikethrough
   On new combined file of bug fixes and base, created AI (Bao, Sofia, Sami, Sam)
   Need to fix final bugs and final touches for aesthetics ~
+
+  DAY 19 - 7/10 THURSDAY
+  Tony, Bao, Sam fixing AI; Kathy, Sofia fixing aesthetics

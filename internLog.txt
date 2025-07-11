@@ -87,3 +87,12 @@ PROGRESS REPORT
 
   DAY 19 - 7/10 THURSDAY
   Tony, Bao, Sam fixing AI; Kathy, Sofia fixing aesthetics
+
+  DAY 20 - 7/11 FRIDAY (CHICK-FIL-A + TONY OVERTIME AGAIN + PRACTICE PRESENTATION DAY)
+  Tony worked overtime, obviously :((
+  Fixed all bugs but created new bugs :((
+  Kathy, Sofia, Tony, Sam fixed new bug with bot mode bot winning in 9 moves (show tie, should be win)
+  Kathy fixed by including new conditional for no strikethrough for tie
+  Bao fixing AI with Sami 
+  Kathy, Sam, Sofia making slides
+  Tony optimizing/fixing code + last minute changes 

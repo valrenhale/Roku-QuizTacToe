@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="homeScene" extends="Scene">
+ <script type="text/brightscript" uri="pkg:/components/homeScene.brs"/>
+	<children>
+
+    <Timer
+      id="clickScreenTimer"
+      duration="0.2"
+      repeat="false"
+    />
+    
+    <!-- Simple falling animation with different speeds -->
+    <Animation id="confettiAnimation" duration="10.0" repeat="false" easeFunction="linear">
+    <!-- First confetti falls slower -->
+      <Vector2DFieldInterpolator 
+        key="[0.0, 1.0]" 
+        keyValue="[[0, -300], [0, 900]]" 
+        fieldToInterp="confetti1.translation"
+      />
+
+  <!-- Second confetti falls faster and starts slightly later -->
+      <Vector2DFieldInterpolator 
+        key="[0.2, 1.0]" 
+        keyValue="[[0, -720], [0, 920]]" 
+        fieldToInterp="confetti2.translation"
+      />
+
+    </Animation>
+
+
+    <Poster
+      id="clickScreen"
+      uri="https://b-o09.github.io/host/rokuStartClick.png"
+      visible = "false"
+    />
+
+    <Button
+      id="hiddenStartButton"
+      width="0.5"
+      height="0.5"
+      translation="[0, 0]"
+      focusable="true"
+      visible="false" 
+    />
+
+    <Poster
+      id="startScreen"
+      uri="https://b-o09.github.io/host/startScreen.png"
+    />
+
+    <Poster
+      id="background"
+      uri="pkg:/images/bg.png"
+      visible = "false"
+    />
+
+    <Group
+      id="gridContainer"
+    />
+
+    <Group
+      id="xContainer"
+    />
+
+    <Group
+      id="oContainer"
+    />
+    
+    <Label
+      id = "winLabel"
+      text = ""
+      translation = "[0, 25]"
+      visible = "true"
+      color = "#FFFFFF"
+      font = "font:LargeBoldSystemFont"
+    />
+    
+    <Label
+      id = "turnLabel"
+      text = " "
+      visible = "true"
+      color = "#FFFFFF"
+      font = "font:LargeBoldSystemFont"
+    />
+
+    <Poster
+      id = "leftAnimal"
+      translation = "[70,350]"
+      visible = "false"
+      height = "250"
+      width="300"
+    />
+
+    <Poster
+      id = "rightAnimal"
+      translation = "[950,350]"
+      visible = "false"
+      height = "250"
+      width = "250"
+    />
+    
+    <Poster
+      id="cursor"
+      uri="pkg:/images/cursor.png"
+    />
+
+    <Poster
+      id="questionBackground"
+      uri="pkg:/images/questionBackground.png"
+      visible = "false"
+    />
+
+    <Label
+      id="question"
+      visible="true"
+      text=""
+      translation="[0,15]"
+      font="font:MediumBoldSystemFont"
+    />
+
+    <ButtonGroup 
+      id = "response"
+      visible = "false"
+      translation = "[470, 250]"
+      iconUri = "https://b-o09.github.io/host/capy.png"
+      focusedIconUri = "https://b-o09.github.io/host/capy.png"
+      focusBitmapUri = "https://b-o09.github.io/host/focused.png"
+      focusedTextColor = "#000000"
+      textFont = "MediumBoldSystemFont"
+    />
+    
+    <Poster
+      id="xWinScreen"
+      uri="https://b-o09.github.io/host/xWin.png"
+      visible = "false"
+    />
+    
+    <Poster
+      id="oWinScreen"
+      uri="https://b-o09.github.io/host/oWin.png"
+      visible = "false"
+    />
+
+    <Poster
+      id="tieScreen"
+      uri="https://b-o09.github.io/host/tie.png"
+      visible = "false"
+    />
+
+    <Poster 
+      id="confetti1"
+      uri="https://b-o09.github.io/host/confetti.png"
+      visible="false"
+    />
+
+    <Poster 
+      id="previewImage"
+      uri="https://b-o09.github.io/host/confetti.png"
+      visible="false"
+    />
+
+    <Poster 
+      id="confetti2"
+      uri="https://b-o09.github.io/host/confetti.png"
+      visible="false"
+    />
+
+    <Label
+      id="global"
+      text="hihii"
+      visible = "false"
+      translation="[400, 400]"
+    />
+
+    <Label
+      id  = "categoryLabel"
+      translation= "[158,607]"
+      text= "Press the fastforward (>>) button to change category!                 Current Category: Mixed"
+      visible = "true" 
+    />    
+
+    <Label
+      id  = "botLabel"
+      translation= "[158,632]"
+      text= "Press the rewind (<<) button to change mode!                                         Current Mode: PvP"
+      visible = "true" 
+    />    
+    <Timer
+      id="correctAnsTimer"
+      duration="0.3"
+      repeat="false"
+      /> 
+
+    <Label
+      id="correctAnsLabel"
+      text=""
+      visible="false"
+      translation="[0,100]"
+    />
+
+    <Label
+      id="themeLabel"
+      text="Press Play/Stop button to change the theme!                   Current Theme: Chicken vs Capybara"
+      visible="true"
+      translation="[158,27]"
+      color = "#5096b6ff"
+    />
+
+    <Label
+      id="replayLabel"
+      text="Press the replay button to go back to tic tac toe!"
+      visible="false"
+      translation="[0,400]"
+    />
+
+    <Rectangle id="strikethrough" color="0xf9a830" visible="false" />
+    <Animation id="strikethroughAnimation">
+    <FloatFieldInterpolator id="strikethroughWidthInterp" 
+                           key="[0.0, 1.0]" 
+                           keyValue="[0.0, 100.0]" 
+                           fieldToInterp="strikethrough.width" />
+    </Animation>
+    
+
+    <Timer
+      id="botTimer"
+      duration="1.5"
+      repeat="false"
+      /> 
+
+    <Timer
+      id = "cursorTimer"
+      duration = "0.4"
+    />
+
+    <Timer
+      id = "previewTimer"
+      duration = "2.0"
+    />
+
+    <Poster 
+      id="popupPreview"
+      visible="false"
+      translation="[350, 65]"
+      width="600"
+      height= "600"
+    />
+
+    <Label
+      id="skinLabel"
+      text=" "
+      visible="false"
+    />    
+
+    
+  </children>
+</component>
